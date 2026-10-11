@@ -1,0 +1,38 @@
+table Skladniki_bridge
+	lineageTag: d7f8a40e-d622-42b8-9180-7abd5d289194
+
+	column Składnik
+		lineageTag: dab0079f-6a4b-466a-9c07-7a6806b56eae
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Składnik]
+		sortByColumn: Kolejność
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kolejność
+		formatString: 0
+		lineageTag: 5ad7c239-7e4d-454d-88ce-8684064fbae6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Kolejność]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Skladniki_bridge = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Składnik", STRING, "Kolejność", INTEGER,
+				    {
+				        { "Zapasy", 1 },
+				        { "Należności handlowe", 2 },
+				        { "Zobowiązania handlowe", 3 },
+				        { "Kredyty i pożyczki", 4 },
+				        { "Obligacje", 5 },
+				        { "Środki pieniężne", 6 }
+				    }
+				)
+
+	annotation PBI_Id = 9c94acd4bb174fa0a001cc995417c7c6
+

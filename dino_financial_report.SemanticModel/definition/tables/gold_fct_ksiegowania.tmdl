@@ -1,0 +1,498 @@
+table gold_fct_ksiegowania
+	lineageTag: 81fbe037-9e61-4a4d-a1c7-dda8d0b55fdb
+
+	/// Wartość pozycji RZiS lub bilansu w mln zł. RZiS: obroty okresu; bilans: stan na ostatni dzień okresu. Wymaga jednej wybranej pozycji (gold_dim_pozycja[line_id]).
+	measure 'Kwota pozycji' =
+			VAR _pozycja      = SELECTEDVALUE ( gold_dim_pozycja[line_id] )
+			VAR _sprawozdanie = SELECTEDVALUE ( gold_dim_pozycja[statement] )
+			VAR _znak         = SELECTEDVALUE ( gold_dim_pozycja[znak] )
+			VAR _dataKonca    = MAX ( gold_dim_kalendarz[Date] )
+			VAR _poczatekRoku = DATE ( YEAR ( _dataKonca ), 1, 1 )
+			-- wiersze bridge table dla wybranej pozycji, tylko konta widoczne w kontekście (drążenie do kont)
+			VAR _bridge =
+			    CALCULATETABLE (
+			        SUMMARIZE ( gold_bridge, gold_bridge[numer_konta], gold_bridge[strona_salda], gold_bridge[zakres] ),
+			        REMOVEFILTERS ( gold_dim_pozycja ),
+			        gold_bridge[id_pozycji] = _pozycja,
+			        TREATAS ( VALUES ( gold_dim_konto[numer_konta] ), gold_bridge[numer_konta] )
+			    )
+			-- RZiS: obroty kont pozycji w wybranym okresie
+			VAR _rzis =
+			    CALCULATE (
+			        SUM ( gold_fct_ksiegowania[kwota] ),
+			        KEEPFILTERS ( TREATAS ( SELECTCOLUMNS ( _bridge, "k", gold_bridge[numer_konta] ), gold_dim_konto[numer_konta] ) )
+			    )
+			-- Bilans: saldo konta na koniec okresu; konto liczy się tylko w pozycji właściwej dla strony salda
+			VAR _bilans =
+			    SUMX (
+			        _bridge,
+			        VAR _konto  = gold_bridge[numer_konta]
+			        VAR _zakres = gold_bridge[zakres]
+			        VAR _od = IF ( _zakres = "ROK_BIEZACY", _poczatekRoku, DATE ( 1900, 1, 1 ) )
+			        VAR _do = IF ( _zakres = "LATA_UBIEGLE", _poczatekRoku - 1, _dataKonca )
+			        VAR _saldo =
+			            CALCULATE (
+			                SUM ( gold_fct_ksiegowania[kwota] ),
+			                gold_dim_konto[numer_konta] = _konto,
+			                REMOVEFILTERS ( gold_dim_kalendarz ),
+			                gold_dim_kalendarz[Date] >= _od && gold_dim_kalendarz[Date] <= _do
+			            )
+			        RETURN
+			            IF ( _zakres <> "SALDO" || gold_bridge[strona_salda] = IF ( _saldo >= 0, "Wn", "Ma" ), _saldo )
+			    )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( _pozycja ),
+			        SWITCH ( _sprawozdanie, "RZIS", _rzis, "BILANS", _bilans ) * _znak / 1000000
+			    )
+		formatString: #,0.0
+		displayFolder: Sprawozdania
+		lineageTag: 897b4629-7a30-4020-a5ca-eff9525d3837
+
+	/// Udział pozycji RZiS w przychodach netto ze sprzedaży (A).
+	measure '% przychodów' =
+			VAR _przychody =
+			    CALCULATE (
+			        [Kwota pozycji],
+			        REMOVEFILTERS ( gold_dim_pozycja ),
+			        REMOVEFILTERS ( gold_dim_konto ),
+			        gold_dim_pozycja[line_id] = "RZ_A"
+			    )
+			RETURN
+			    DIVIDE ( [Kwota pozycji], _przychody )
+		formatString: 0.0%
+		displayFolder: Sprawozdania
+		lineageTag: 1926cd51-7282-4a99-8be9-cad4121869e5
+
+	/// A. Przychody netto ze sprzedaży i zrównane z nimi, mln zł.
+	measure 'Przychody netto' =
+			CALCULATE (
+			    [Kwota pozycji],
+			    REMOVEFILTERS ( gold_dim_pozycja ),
+			    gold_dim_pozycja[line_id] = "RZ_A"
+			)
+		formatString: #,0.0
+		displayFolder: KPI
+		lineageTag: 2866cae0-e9d3-4c69-80bf-1c6237f021ec
+
+	/// C. Zysk (strata) ze sprzedaży, mln zł.
+	measure 'Zysk netto' =
+			CALCULATE (
+			    [Kwota pozycji],
+			    REMOVEFILTERS ( gold_dim_pozycja ),
+			    gold_dim_pozycja[line_id] = "RZ_L"
+			)
+		formatString: #,0.0
+		displayFolder: KPI
+		lineageTag: 32fd5399-2620-4277-ab1e-b21df3cc68e4
+
+	/// Zysk netto / przychody netto.
+	measure EBITDA =
+			
+			CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), gold_dim_pozycja[line_id] = "RZ_F" )
+			    + CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), gold_dim_pozycja[line_id] = "RZ_B1" )
+		displayFolder: KPI
+		lineageTag: 336254ca-6f15-40bb-87fc-dc2219067d6c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Marża EBITDA' =
+			
+			DIVIDE ( [EBITDA], [Przychody netto] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: KPI
+		lineageTag: 5c29f7f4-91a6-4c9a-a1ac-7ed567fbfaba
+
+	measure 'Wpływ na marżę EBITDA' =
+			
+			VAR _przychody = [Przychody netto]
+			VAR _wplyw =
+			    SUMX (
+			        CALCULATETABLE (
+			            VALUES ( gold_dim_pozycja[line_id] ),
+			            gold_dim_pozycja[statement] = "RZIS",
+			            gold_dim_pozycja[line_type] = "POSTING",
+			            LEFT ( gold_dim_pozycja[line_id], 4 ) IN { "RZ_A", "RZ_B", "RZ_D", "RZ_E" },  -- pozycje do poziomu EBITDA
+			            gold_dim_pozycja[line_id] <> "RZ_B1"                                           -- bez amortyzacji
+			        ),
+			        VAR _znak = CALCULATE ( SELECTEDVALUE ( gold_dim_pozycja[znak] ) )
+			        RETURN CALCULATE ( [Kwota pozycji] ) * -_znak
+			    )
+			RETURN
+			    DIVIDE ( _wplyw, _przychody )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: KPI
+		lineageTag: 20f70817-a96c-4b2a-b7b1-344628f2b35a
+
+	measure 'LFL r/r' =
+			
+			VAR _od = MIN ( gold_dim_kalendarz[Date] )
+			VAR _do = MAX ( gold_dim_kalendarz[Date] )
+			RETURN
+			    LOOKUPVALUE ( LFL_raport[LFL], LFL_raport[od], _od, LFL_raport[do], _do )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: KPI
+		lineageTag: 3c1ce412-f6ca-44d9-9141-3d9eb65344b1
+
+	measure 'Bridge dynamiki (p.p.)' =
+			
+			VAR _cy  = [Przychody netto]
+			VAR _py  = CALCULATE ( [Przychody netto], SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) )
+			VAR _lfl = [LFL r/r]
+			VAR _inf = [Inflacja żywności r/r]
+			VAR _dynamika = DIVIDE ( _cy - _py, _py )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( _py ) && NOT ISBLANK ( _lfl ) && NOT ISBLANK ( _inf ),
+			        SWITCH (
+			            SELECTEDVALUE ( Bridge_LFL_pp[Kolejność] ),
+			            1, _inf,
+			            2, _lfl - _inf,
+			            3, _dynamika - _lfl,
+			            _dynamika
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: KPI
+		lineageTag: 0152dc53-4ad8-428f-aa27-2570b9044c0e
+
+	measure 'Inflacja żywności r/r' =
+			
+			VAR _od = MIN ( gold_dim_kalendarz[Date] )
+			VAR _do = MAX ( gold_dim_kalendarz[Date] )
+			RETURN
+			    LOOKUPVALUE ( LFL_raport[Inflacja], LFL_raport[od], _od, LFL_raport[do], _do )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: KPI
+		lineageTag: 1e2eb55d-5784-484f-a4ba-8b9d93f33e99
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% sumy bilansowej' =
+			
+			VAR _suma_bilansowa =
+			    CALCULATE (
+			        [Kwota pozycji],
+			        REMOVEFILTERS ( gold_dim_pozycja ),
+			        REMOVEFILTERS ( gold_dim_konto ),
+			        gold_dim_pozycja[line_id] = "AK"
+			    )
+			RETURN
+			    DIVIDE ( [Kwota pozycji], _suma_bilansowa )
+		formatString: 0.0%
+		displayFolder: Sprawozdania
+		lineageTag: 1d799871-3f79-43c1-8888-e834cce1b503
+
+	measure Zapasy = SUMX ( { "AK_B1" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: 442b85d8-e8df-4ec3-8b7d-67d2c4b6bb3c
+
+	measure 'Należności handlowe' = SUMX ( { "AK_B21a", "AK_B23a" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: d0a495a2-70e8-4810-b92c-f037c3c91355
+
+	measure 'Zobowiązania handlowe' = SUMX ( { "PA_B31a", "PA_B33d" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: 0e0161cc-d881-4105-aa1e-1f976dd3653f
+
+	measure 'Kapitał obrotowy handlowy' =
+			-- zapasy + należności z dostaw - zobowiązania z dostaw (stan na koniec okresu, mln zł)
+			[Zapasy] + [Należności handlowe] - [Zobowiązania handlowe]
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: a3ab1f30-71dd-4c4e-87ba-280714df039f
+
+	measure 'Dług netto' =
+			-- kredyty, pożyczki i obligacje (długo- i krótkoterminowe) minus środki pieniężne; ujemny = gotówka netto
+			SUMX ( { "PA_B23a", "PA_B23b", "PA_B33a", "PA_B33b" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) )
+			    - SUMX ( { "AK_B31c" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: 7cfe8725-a64e-4cc5-9105-427f7df5eca5
+
+	measure 'Dni w okresie' = DATEDIFF ( MIN ( gold_dim_kalendarz[Date] ), MAX ( gold_dim_kalendarz[Date] ), DAY ) + 1
+		formatString: 0
+		displayFolder: Bilans
+		lineageTag: 2abce162-5f50-445a-94c0-66f1cabf4e0d
+
+	measure 'Koszt sprzedanych towarów' = SUMX ( { "RZ_B8" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: 99885843-fbdd-4701-a763-d329da612454
+
+	measure 'Rotacja zapasów (dni)' = DIVIDE ( [Zapasy], [Koszt sprzedanych towarów] ) * [Dni w okresie]
+		formatString: 0.0
+		displayFolder: Bilans
+		lineageTag: 95223647-922a-4207-adc0-afd516c3583d
+
+	measure 'Rotacja należności (dni)' = DIVIDE ( [Należności handlowe], [Przychody netto] ) * [Dni w okresie]
+		formatString: 0.0
+		displayFolder: Bilans
+		lineageTag: 96cb6f89-d2f5-42ac-959c-44df6bbae29a
+
+	measure 'Rotacja zobowiązań (dni)' = DIVIDE ( [Zobowiązania handlowe], [Koszt sprzedanych towarów] ) * [Dni w okresie]
+		formatString: 0.0
+		displayFolder: Bilans
+		lineageTag: 10a559f8-c267-422d-9bb4-97c2b3b3fbb3
+
+	measure 'Cykl konwersji gotówki (dni)' =
+			-- ujemny = dostawcy finansują zapasy
+			[Rotacja zapasów (dni)] + [Rotacja należności (dni)] - [Rotacja zobowiązań (dni)]
+		formatString: 0.0
+		displayFolder: Bilans
+		lineageTag: 67c7719c-03b0-4a6a-ac7f-55f7ff12992f
+
+	measure 'Dług netto / EBITDA' =
+			-- dług netto na koniec okresu / EBITDA z ostatnich 12 miesięcy
+			DIVIDE ( [Dług netto], [EBITDA LTM] )
+		formatString: 0.00"x"
+		displayFolder: Bilans
+		lineageTag: b8600f47-c9a2-494c-a2e0-3768ff9b9bdd
+
+	measure 'KOH – bridge' =
+			-- składniki kapitału obrotowego ze znakiem wpływu; bez wybranego składnika = cały KOH
+			VAR _k = SELECTEDVALUE ( Skladniki_bridge[Kolejność] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _k ), [Kapitał obrotowy handlowy],
+			        _k = 1, [Zapasy],
+			        _k = 2, [Należności handlowe],
+			        _k = 3, - [Zobowiązania handlowe],
+			        BLANK ()
+			    )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: ec52bb88-a80a-4989-a69b-8f81262c3932
+
+	measure 'Dług netto – bridge' =
+			-- składniki długu netto ze znakiem wpływu; bez wybranego składnika = cały dług netto
+			VAR _k = SELECTEDVALUE ( Skladniki_bridge[Kolejność] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _k ), [Dług netto],
+			        _k = 4, SUMX ( { "PA_B23a", "PA_B33a" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) ),
+			        _k = 5, SUMX ( { "PA_B23b", "PA_B33b" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) ),
+			        _k = 6, - SUMX ( { "AK_B31c" }, VAR _id = [Value] RETURN CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = _id ) ),
+			        BLANK ()
+			    )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: d4593872-2984-4558-b5a5-76900b373c61
+
+	measure ROE =
+			-- zysk netto LTM / kapitał własny na koniec okresu
+			DIVIDE ( [Zysk netto LTM], [Kapitał własny] )
+		formatString: 0.0%
+		displayFolder: Bilans
+		lineageTag: 2f026173-ec3a-4f65-83ad-6102f8b6a218
+
+	measure 'Aktywa razem' = CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = "AK" )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: fcfca4ad-8fec-4b06-a336-3f20cdc03708
+
+	measure 'Kapitał własny' = CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), REMOVEFILTERS ( gold_dim_konto ), gold_dim_pozycja[line_id] = "PA_A" )
+		formatString: #,0.0
+		displayFolder: Bilans
+		lineageTag: 35f0319a-1419-481b-a935-bddf91c88985
+
+	measure 'Rotacja aktywów' =
+			-- przychody LTM / aktywa na koniec okresu
+			DIVIDE ( [Przychody netto LTM], [Aktywa razem] )
+		formatString: 0.00"x"
+		displayFolder: Bilans
+		lineageTag: abe51a36-388d-42f6-99af-415c78d0f4fe
+
+	measure 'Dźwignia finansowa' =
+			-- aktywa / kapitał własny (mnożnik kapitałowy)
+			DIVIDE ( [Aktywa razem], [Kapitał własny] )
+		formatString: 0.00"x"
+		displayFolder: Bilans
+		lineageTag: 3bd21923-3fd7-4e48-ae2e-79a955af3d28
+
+	measure 'ROE – DuPont' =
+			-- ROE bridge r/r: ROE = marża netto × rotacja aktywów × dźwignia
+			-- wkład czynnika = (ROE - ROE PY) × ln(czynnik / czynnik PY) / ln(ROE / ROE PY)  (dekompozycja logarytmiczna)
+			VAR _k = SELECTEDVALUE ( Bridge_ROE[Kolejność] )
+			VAR _roe = [ROE]
+			VAR _m = [Marża netto LTM]
+			VAR _r = [Rotacja aktywów]
+			VAR _d = [Dźwignia finansowa]
+			VAR _roe_py = CALCULATE ( [ROE], SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) )
+			VAR _m_py = CALCULATE ( [Marża netto LTM], SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) )
+			VAR _r_py = CALCULATE ( [Rotacja aktywów], SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) )
+			VAR _d_py = CALCULATE ( [Dźwignia finansowa], SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) )
+			VAR _ok = _roe > 0 && _roe_py > 0 && _m > 0 && _m_py > 0 && _r > 0 && _r_py > 0 && _d > 0 && _d_py > 0
+			VAR _waga = IF ( _ok && _roe <> _roe_py, DIVIDE ( _roe - _roe_py, LN ( _roe / _roe_py ) ) )
+			RETURN
+			    IF (
+			        _ok,
+			        SWITCH (
+			            _k,
+			            1, _roe_py,
+			            2, _waga * LN ( _m / _m_py ),
+			            3, _waga * LN ( _r / _r_py ),
+			            4, _waga * LN ( _d / _d_py ),
+			            _roe
+			        )
+			    )
+		formatString: 0.0%
+		displayFolder: Bilans
+		lineageTag: 5301b5ab-5882-4687-bb6b-d36b66bb7870
+
+	measure 'EBITDA LTM' =
+			-- suma z ostatnich 12 miesięcy do końca okresu (LTM);
+			-- gdy brak 12 miesięcy historii (kwartały 2024): YTD przeliczone na rok
+			VAR _koniec = MAX ( gold_dim_kalendarz[Date] )
+			VAR _poczatek = EDATE ( _koniec, -12 ) + 1
+			VAR _pierwsza = CALCULATE ( MIN ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( gold_dim_kalendarz ) )
+			VAR _od_ytd = DATE ( YEAR ( _koniec ), 1, 1 )
+			RETURN
+			    IF (
+			        _poczatek >= _pierwsza,
+			        CALCULATE ( [EBITDA], DATESBETWEEN ( gold_dim_kalendarz[Date], _poczatek, _koniec ) ),
+			        CALCULATE ( [EBITDA], DATESBETWEEN ( gold_dim_kalendarz[Date], _od_ytd, _koniec ) )
+			            * DIVIDE ( 365, DATEDIFF ( _od_ytd, _koniec, DAY ) + 1 )
+			    )
+		formatString: #,0.0
+		displayFolder: KPI
+		lineageTag: d1a5254a-43e4-4928-8d75-06b3a8d09250
+
+	measure 'Zysk netto LTM' =
+			-- suma z ostatnich 12 miesięcy do końca okresu (LTM);
+			-- gdy brak 12 miesięcy historii (kwartały 2024): YTD przeliczone na rok
+			VAR _koniec = MAX ( gold_dim_kalendarz[Date] )
+			VAR _poczatek = EDATE ( _koniec, -12 ) + 1
+			VAR _pierwsza = CALCULATE ( MIN ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( gold_dim_kalendarz ) )
+			VAR _od_ytd = DATE ( YEAR ( _koniec ), 1, 1 )
+			RETURN
+			    IF (
+			        _poczatek >= _pierwsza,
+			        CALCULATE ( [Zysk netto], DATESBETWEEN ( gold_dim_kalendarz[Date], _poczatek, _koniec ) ),
+			        CALCULATE ( [Zysk netto], DATESBETWEEN ( gold_dim_kalendarz[Date], _od_ytd, _koniec ) )
+			            * DIVIDE ( 365, DATEDIFF ( _od_ytd, _koniec, DAY ) + 1 )
+			    )
+		formatString: #,0.0
+		displayFolder: KPI
+		lineageTag: 95d8ded6-1596-4a4a-9cbd-689023506bdc
+
+	measure 'Przychody netto LTM' =
+			-- suma z ostatnich 12 miesięcy do końca okresu (LTM);
+			-- gdy brak 12 miesięcy historii (kwartały 2024): YTD przeliczone na rok
+			VAR _koniec = MAX ( gold_dim_kalendarz[Date] )
+			VAR _poczatek = EDATE ( _koniec, -12 ) + 1
+			VAR _pierwsza = CALCULATE ( MIN ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( gold_dim_kalendarz ) )
+			VAR _od_ytd = DATE ( YEAR ( _koniec ), 1, 1 )
+			RETURN
+			    IF (
+			        _poczatek >= _pierwsza,
+			        CALCULATE ( [Przychody netto], DATESBETWEEN ( gold_dim_kalendarz[Date], _poczatek, _koniec ) ),
+			        CALCULATE ( [Przychody netto], DATESBETWEEN ( gold_dim_kalendarz[Date], _od_ytd, _koniec ) )
+			            * DIVIDE ( 365, DATEDIFF ( _od_ytd, _koniec, DAY ) + 1 )
+			    )
+		formatString: #,0.0
+		displayFolder: KPI
+		lineageTag: 97b66834-27bc-4ca9-a0c5-ac2060fb1082
+
+	measure 'Marża netto LTM' = DIVIDE ( [Zysk netto LTM], [Przychody netto LTM] )
+		formatString: 0.00%
+		displayFolder: KPI
+		lineageTag: 2d484fec-2cf3-4cef-b39e-91ad9b184dcb
+
+	column numer_dokumentu
+		dataType: string
+		lineageTag: 7c155e10-dfcf-46c1-b9e2-a587fa9f5975
+		summarizeBy: none
+		sourceColumn: numer_dokumentu
+
+		annotation SummarizationSetBy = Automatic
+
+	column numer_pozycji
+		dataType: int64
+		formatString: 0
+		lineageTag: 80a46918-93cc-4456-8165-a3a219c4ea95
+		summarizeBy: sum
+		sourceColumn: numer_pozycji
+
+		annotation SummarizationSetBy = Automatic
+
+	column numer_konta
+		dataType: string
+		lineageTag: 04feae67-f6d9-47be-8c7a-c1b281beb2ea
+		summarizeBy: none
+		sourceColumn: numer_konta
+
+		annotation SummarizationSetBy = Automatic
+
+	column strona
+		dataType: string
+		lineageTag: cb80ab9f-6842-4d4e-bfe3-bd01ff283327
+		summarizeBy: none
+		sourceColumn: strona
+
+		annotation SummarizationSetBy = Automatic
+
+	column kwota_pln
+		dataType: double
+		lineageTag: 675b2db1-357a-41ef-85ef-4a857c41fb89
+		summarizeBy: sum
+		sourceColumn: kwota_pln
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rodzaj_dokumentu
+		dataType: string
+		lineageTag: 7dffad71-7549-4189-b3d5-532cb1e1db7a
+		summarizeBy: none
+		sourceColumn: rodzaj_dokumentu
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_ksiegowania
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f1b2524e-f283-44b8-87ce-1b7ce2a0a808
+		summarizeBy: none
+		sourceColumn: data_ksiegowania
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kwota
+		dataType: decimal
+		formatString: #,0.###############\ "zł";-#,0.###############\ "zł";#,0.###############\ "zł"
+		lineageTag: 21c7199d-372e-411c-b1a6-2f91b630b612
+		summarizeBy: sum
+		sourceColumn: kwota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pl-PL"}
+
+	partition gold_fct_ksiegowania = m
+		mode: import
+		queryGroup: 03_gold
+		source =
+				let
+				    Source = silver_bseg,
+				    #"Merged Queries" = Table.NestedJoin(Source, {"kod_spolki", "numer_dokumentu", "rok_obrotowy"}, silver_bkpf, {"kod_spolki", "numer_dokumentu", "rok_obrotowy"}, "silver_bkpf", JoinKind.Inner),
+				    #"Expanded silver_bkpf" = Table.ExpandTableColumn(#"Merged Queries", "silver_bkpf", {"rodzaj_dokumentu", "data_dokumentu", "data_ksiegowania", "okres_ksiegowy", "data_wprowadzenia", "kod_transakcji", "numer_referencyjny", "tekst_naglowka", "numer_dokumentu_storna", "rok_dokumentu_storna", "waluta", "znacznik_storna"}, {"rodzaj_dokumentu", "data_dokumentu", "data_ksiegowania", "okres_ksiegowy", "data_wprowadzenia", "kod_transakcji", "numer_referencyjny", "tekst_naglowka", "numer_dokumentu_storna", "rok_dokumentu_storna", "waluta", "znacznik_storna"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Expanded silver_bkpf",{"numer_dokumentu", "numer_pozycji", "numer_konta", "strona", "kwota_pln", "rodzaj_dokumentu", "data_ksiegowania"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Removed Other Columns", "Custom", each if [strona] = "Wn" then [kwota_pln] else -[kwota_pln]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Conditional Column",{{"Custom", Currency.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Custom", "kwota"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

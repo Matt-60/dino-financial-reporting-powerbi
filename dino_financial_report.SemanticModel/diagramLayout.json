@@ -1,0 +1,197 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 3048.4778247008612,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 484.49413526860025,
+            "y": 432.65826198702024
+          },
+          "nodeIndex": "gold_dim_kalendarz",
+          "nodeLineageTag": "0f2981c3-867d-406e-874e-54a4181fa93f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 883.939780092579,
+            "y": 460.26712450870855
+          },
+          "nodeIndex": "gold_dim_konto",
+          "nodeLineageTag": "cb5ba9fe-60c8-4346-8c56-c3d015244710",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 0
+          },
+          "nodeIndex": "gold_fct_ksiegowania",
+          "nodeLineageTag": "81fbe037-9e61-4a4d-a1c7-dda8d0b55fdb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 2.2729480582199812,
+            "y": 325.527929364829
+          },
+          "nodeIndex": "gold_dim_pozycja",
+          "nodeLineageTag": "49b0a517-b18d-4d06-b94a-485b10ca2312",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 279.76568952975356,
+            "y": 0
+          },
+          "nodeIndex": "gold_bridge",
+          "nodeLineageTag": "ca6c6e97-e44f-4fd0-9f48-bc113425b8f2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1729.120935917919,
+            "y": 254.13356225435427
+          },
+          "nodeIndex": "Szczegółowość wykresu",
+          "nodeLineageTag": "c9446959-1d95-4a73-a95e-f3f2a08e6074",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2010.8479878596991,
+            "y": 230.13356225435427
+          },
+          "nodeIndex": "LFL_raport",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 2292.5750398014789,
+            "y": 230.13356225435427
+          },
+          "nodeIndex": "Bridge_LFL_pp",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3703.483247568598,
+            "y": 266.13356225435427
+          },
+          "nodeIndex": "Skladniki_bridge",
+          "nodeLineageTag": "d7f8a40e-d622-42b8-9180-7abd5d289194",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1447.393883976139,
+            "y": 254.13356225435427
+          },
+          "nodeIndex": "Miara RZiS",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2574.3020917432586,
+            "y": 254.13356225435427
+          },
+          "nodeIndex": "Miara bilans",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3421.7561956268182,
+            "y": 254.13356225435427
+          },
+          "nodeIndex": "Bridge",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3985.2102995103778,
+            "y": 266.13356225435427
+          },
+          "nodeIndex": "Bridge_ROE",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1165.666832034359,
+            "y": 266.13356225435427
+          },
+          "nodeIndex": "Comparison",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 87.991452016121073,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

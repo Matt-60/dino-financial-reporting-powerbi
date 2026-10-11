@@ -1,0 +1,36 @@
+table Bridge_LFL_pp
+	lineageTag: 61584160-6655-4f51-9457-609bce90970d
+
+	column Krok
+		lineageTag: c7b2c0c3-740f-43a2-aa6a-7b690f68ff5d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Krok]
+		sortByColumn: Kolejność
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kolejność
+		formatString: 0
+		lineageTag: abba0620-263b-4b57-ba92-1ae738804762
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Kolejność]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_LFL_pp = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "Krok", STRING, "Kolejność", INTEGER,
+				    {
+				        { "Inflacja", 1 },
+				        { "Realny LFL", 2 },
+				        { "Nowe sklepy", 3 }
+				    }
+				)
+
+	annotation PBI_Id = 95567f3104d5407a97f727cec01eb995
+

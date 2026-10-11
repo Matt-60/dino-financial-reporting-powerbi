@@ -1,0 +1,48 @@
+table 'Miara RZiS'
+	lineageTag: 28aaddc7-1d52-4649-9f63-96f891879c40
+
+	column 'Miara RZiS'
+		lineageTag: f9ba59f1-9d57-4b48-afc2-5823790e502d
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: 18d8bedd-fb78-4224-9168-3cfa401e81de
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: d1052d6c-e943-4722-a29b-f84ad343ad5a
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Miara RZiS' = calculated
+		mode: import
+		source =
+				{
+				    ("% przychodów", NAMEOF('gold_fct_ksiegowania'[% przychodów]), 1),
+				    ("Kwota pozycji", NAMEOF('gold_fct_ksiegowania'[Kwota pozycji]), 0)
+				}
+
+	annotation PBI_Id = b8c11fd3bdd2434098f3493398b509d0
+

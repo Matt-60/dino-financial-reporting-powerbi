@@ -1,0 +1,48 @@
+table 'Miara bilans'
+	lineageTag: c04c6832-06d7-4ac0-a8cb-6ba2d11be607
+
+	column 'Miara bilans'
+		lineageTag: 1ab69ad0-5464-4e31-acd6-efe0f16bbd1e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: d60c1587-0b57-49fa-a245-eef1cd7eb7db
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: 41350fdb-1018-483a-8e9f-cc94f63ff933
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Miara bilans' = calculated
+		mode: import
+		source =
+				{
+				    ("Kwota pozycji", NAMEOF('gold_fct_ksiegowania'[Kwota pozycji]), 0),
+				    ("% sumy bilansowej", NAMEOF('gold_fct_ksiegowania'[% sumy bilansowej]), 1)
+				}
+
+	annotation PBI_Id = 401370c39d0e4373a044f106ba0c97de
+

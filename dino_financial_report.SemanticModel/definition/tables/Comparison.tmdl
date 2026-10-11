@@ -1,0 +1,89 @@
+/// Porównania okresów. Każdy element wyłącza filtr grupy, żeby nie zadziałać drugi raz w miarach zagnieżdżonych (np. % przychodów, KPI).
+table Comparison
+	lineageTag: 17c04090-837c-4b1d-86c3-1ad8bc3a9642
+
+	calculationGroup
+
+		calculationItem 'Bieżący okres' = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparison[Porównanie] ) )
+
+		calculationItem PY = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+
+		calculationItem 'Δ r/r' =
+				VAR _biezacy = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				VAR _py = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				RETURN
+				    IF ( ISSELECTEDMEASURE ( [% przychodów], [Marża EBITDA], [LFL r/r], [Inflacja żywności r/r], [Bridge dynamiki (p.p.)], [Wpływ na marżę EBITDA], [% sumy bilansowej], [ROE], [ROE – DuPont], [Marża netto LTM] ), ( _biezacy - _py ) * 100, _biezacy - _py )
+
+			formatStringDefinition = IF ( ISSELECTEDMEASURE ( [% przychodów], [Marża EBITDA], [LFL r/r], [Inflacja żywności r/r], [Bridge dynamiki (p.p.)], [Wpływ na marżę EBITDA], [% sumy bilansowej], [ROE], [ROE – DuPont], [Marża netto LTM] ), "+0.0 \p\.\p\.;-0.0 \p\.\p\.;0.0 \p\.\p\.", SELECTEDMEASUREFORMATSTRING () )
+
+		calculationItem 'Δ% r/r' =
+				VAR _biezacy = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				VAR _py = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				RETURN
+				    IF (
+				        ISSELECTEDMEASURE ( [% przychodów], [Marża EBITDA], [LFL r/r], [Inflacja żywności r/r], [Bridge dynamiki (p.p.)], [Wpływ na marżę EBITDA], [% sumy bilansowej], [ROE], [ROE – DuPont], [Marża netto LTM] ),
+				        BLANK (),
+				        DIVIDE ( _biezacy - _py, ABS ( _py ) )
+				    )
+
+			formatStringDefinition = "0.0%"
+
+		calculationItem YTD = CALCULATE ( SELECTEDMEASURE (), DATESYTD ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+
+		calculationItem 'YTD PY' = CALCULATE ( SELECTEDMEASURE (), DATESYTD ( SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+
+		calculationItem 'Koniec poprzedniego roku' =
+				VAR _rok = YEAR ( MAX ( gold_dim_kalendarz[Date] ) )
+				VAR _pierwsza = CALCULATE ( MIN ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( gold_dim_kalendarz ) )
+				VAR _brak_roku = DATE ( _rok - 1, 12, 31 ) < _pierwsza
+				-- stan na 31.12 poprzedniego roku (wskaźniki z przepływami: za cały poprzedni rok); pierwszy rok danych: bilans otwarcia z 1.01
+				VAR _od = IF ( _brak_roku, _pierwsza, DATE ( _rok - 1, 1, 1 ) )
+				VAR _do = IF ( _brak_roku, _pierwsza, DATE ( _rok - 1, 12, 31 ) )
+				VAR _koniec_py =
+				    IF (
+				        SELECTEDVALUE ( gold_dim_pozycja[statement] ) = "RZIS" || ( _brak_roku && ISSELECTEDMEASURE ( [ROE], [ROE – DuPont], [Rotacja aktywów], [Rotacja zapasów (dni)], [Rotacja należności (dni)], [Rotacja zobowiązań (dni)], [Cykl konwersji gotówki (dni)], [Dług netto / EBITDA], [Koszt sprzedanych towarów], [Dni w okresie] ) ),
+				        BLANK (),
+				        CALCULATE ( SELECTEDMEASURE (), DATESBETWEEN ( gold_dim_kalendarz[Date], _od, _do ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				    )
+				RETURN _koniec_py
+
+		calculationItem 'Δ od końca roku' =
+				VAR _rok = YEAR ( MAX ( gold_dim_kalendarz[Date] ) )
+				VAR _pierwsza = CALCULATE ( MIN ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( gold_dim_kalendarz ) )
+				VAR _brak_roku = DATE ( _rok - 1, 12, 31 ) < _pierwsza
+				-- stan na 31.12 poprzedniego roku (wskaźniki z przepływami: za cały poprzedni rok); pierwszy rok danych: bilans otwarcia z 1.01
+				VAR _od = IF ( _brak_roku, _pierwsza, DATE ( _rok - 1, 1, 1 ) )
+				VAR _do = IF ( _brak_roku, _pierwsza, DATE ( _rok - 1, 12, 31 ) )
+				VAR _koniec_py =
+				    IF (
+				        SELECTEDVALUE ( gold_dim_pozycja[statement] ) = "RZIS" || ( _brak_roku && ISSELECTEDMEASURE ( [ROE], [ROE – DuPont], [Rotacja aktywów], [Rotacja zapasów (dni)], [Rotacja należności (dni)], [Rotacja zobowiązań (dni)], [Cykl konwersji gotówki (dni)], [Dług netto / EBITDA], [Koszt sprzedanych towarów], [Dni w okresie] ) ),
+				        BLANK (),
+				        CALCULATE ( SELECTEDMEASURE (), DATESBETWEEN ( gold_dim_kalendarz[Date], _od, _do ), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				    )
+				VAR _biezacy = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparison[Porównanie] ) )
+				RETURN
+				    IF (
+				        ISBLANK ( _koniec_py ) || SELECTEDVALUE ( gold_dim_pozycja[statement] ) = "RZIS",
+				        BLANK (),
+				        IF ( ISSELECTEDMEASURE ( [% przychodów], [Marża EBITDA], [LFL r/r], [Inflacja żywności r/r], [Bridge dynamiki (p.p.)], [Wpływ na marżę EBITDA], [% sumy bilansowej], [ROE], [ROE – DuPont], [Marża netto LTM] ), ( _biezacy - _koniec_py ) * 100, _biezacy - _koniec_py )
+				    )
+
+			formatStringDefinition = IF ( ISSELECTEDMEASURE ( [% przychodów], [Marża EBITDA], [LFL r/r], [Inflacja żywności r/r], [Bridge dynamiki (p.p.)], [Wpływ na marżę EBITDA], [% sumy bilansowej], [ROE], [ROE – DuPont], [Marża netto LTM] ), "+0.0 \p\.\p\.;-0.0 \p\.\p\.;0.0 \p\.\p\.", SELECTEDMEASUREFORMATSTRING () )
+
+	column Porównanie
+		dataType: string
+		lineageTag: e41a1eb8-4751-4297-af8a-ec4b4435c287
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 66dc27e0-e01a-46ad-b22b-fdbe2ed32118
+		summarizeBy: none
+		sourceColumn: Ordinal
+
+	partition Comparison = calculationGroup
+

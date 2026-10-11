@@ -1,0 +1,48 @@
+table Bridge
+	lineageTag: f8473c9d-69fd-4b78-a3ad-b8caa6edb632
+
+	column Bridge
+		lineageTag: c212772f-43ff-4fa4-a97a-458ea987f5f7
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: a7e127c4-eb3c-449d-bf6c-d85effc23117
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: 44ace87a-76b3-4735-8c29-d741c23c6aae
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge = calculated
+		mode: import
+		source =
+				{
+				    ("Kapitał obrotowy", NAMEOF('gold_fct_ksiegowania'[KOH – bridge]), 0),
+				    ("Dług netto", NAMEOF('gold_fct_ksiegowania'[Dług netto – bridge]), 1)
+				}
+
+	annotation PBI_Id = 8b8b25566a874604b948e033be10eb3d
+

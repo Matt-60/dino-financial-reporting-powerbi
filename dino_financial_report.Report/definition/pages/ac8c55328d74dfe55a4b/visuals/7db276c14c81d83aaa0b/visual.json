@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "7db276c14c81d83aaa0b",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 450.12305685857928,
+    "width": 599.76019689097382,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_kalendarz"
+                    }
+                  },
+                  "Property": "Rok"
+                }
+              },
+              "queryRef": "gold_dim_kalendarz.Rok",
+              "nativeQueryRef": "Rok",
+              "active": false,
+              "displayName": "Rok"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_kalendarz"
+                    }
+                  },
+                  "Property": "Rok kwartał"
+                }
+              },
+              "queryRef": "gold_dim_kalendarz.Rok kwartał",
+              "nativeQueryRef": "Kwartał",
+              "active": false,
+              "displayName": "Kwartał"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_kalendarz"
+                    }
+                  },
+                  "Property": "Rok miesiąc"
+                }
+              },
+              "queryRef": "gold_dim_kalendarz.Rok miesiąc",
+              "nativeQueryRef": "Miesiąc nr",
+              "active": true,
+              "displayName": "Miesiąc nr"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Szczegółowość wykresu"
+                    }
+                  },
+                  "Property": "Szczegółowość wykresu"
+                }
+              },
+              "index": 0,
+              "length": 3
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fct_ksiegowania"
+                    }
+                  },
+                  "Property": "Kwota pozycji"
+                }
+              },
+              "queryRef": "gold_fct_ksiegowania.Kwota pozycji",
+              "nativeQueryRef": "Kwota pozycji",
+              "displayName": "Kwota pozycji"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fct_ksiegowania"
+                    }
+                  },
+                  "Property": "% sumy bilansowej"
+                }
+              },
+              "queryRef": "gold_fct_ksiegowania.% sumy bilansowej",
+              "nativeQueryRef": "% sumy bilansowej",
+              "displayName": "% sumy bilansowej"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Miara bilans"
+                    }
+                  },
+                  "Property": "Miara bilans"
+                }
+              },
+              "index": 0,
+              "length": 2
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_dim_pozycja"
+                  }
+                },
+                "Property": "pozycja"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Trend pozycji'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Stan na koniec okresu; oś wg slicera Oś trendu'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

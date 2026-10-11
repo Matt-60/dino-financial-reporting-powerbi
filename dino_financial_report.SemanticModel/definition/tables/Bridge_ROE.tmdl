@@ -1,0 +1,36 @@
+table Bridge_ROE
+	lineageTag: 98bec8f3-075f-4f61-8945-46b7b4dbf8e5
+
+	column Krok
+		lineageTag: 2bca45c3-0358-451b-b90a-632850e67557
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Krok]
+		sortByColumn: Kolejność
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kolejność
+		formatString: 0
+		lineageTag: ce1ed955-6ccc-4d09-9aa0-7eced0f4a4d9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Kolejność]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Bridge_ROE = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Krok", STRING, "Kolejność", INTEGER,
+				    {
+				        { "ROE rok wcześniej", 1 },
+				        { "Marża netto", 2 },
+				        { "Rotacja aktywów", 3 },
+				        { "Dźwignia finansowa", 4 }
+				    }
+				)
+
+	annotation PBI_Id = 56a0ea2b1df144e3ba2dc822bf4e8c72
+

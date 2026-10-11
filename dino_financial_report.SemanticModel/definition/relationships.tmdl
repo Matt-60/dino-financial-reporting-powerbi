@@ -1,0 +1,12 @@
+relationship AutoDetected_c2502a3e-9b65-477c-8006-06e2cb106957
+	fromColumn: gold_fct_ksiegowania.numer_konta
+	toColumn: gold_dim_konto.numer_konta
+
+relationship eaccb0b5-a32f-bf85-7427-6ba21ae59810
+	fromColumn: gold_bridge.id_pozycji
+	toColumn: gold_dim_pozycja.line_id
+
+relationship 569b5b34-3e44-a1d4-5621-c7052ea236b9
+	fromColumn: gold_fct_ksiegowania.data_ksiegowania
+	toColumn: gold_dim_kalendarz.Date
+

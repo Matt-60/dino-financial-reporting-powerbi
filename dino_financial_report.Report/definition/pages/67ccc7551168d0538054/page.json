@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "67ccc7551168d0538054",
+  "displayName": "TT ROE",
+  "displayOption": "FitToPage",
+  "height": 450,
+  "width": 600,
+  "pageBinding": {
+    "name": "tt_67ccc755",
+    "type": "Tooltip",
+    "parameters": [],
+    "acceptsFilterContext": "None"
+  },
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}

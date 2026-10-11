@@ -1,0 +1,93 @@
+table gold_dim_konto
+	lineageTag: cb5ba9fe-60c8-4346-8c56-c3d015244710
+
+	column numer_konta
+		dataType: string
+		lineageTag: 1e536640-5693-49d5-b491-6f39d15c7a0d
+		summarizeBy: none
+		sourceColumn: numer_konta
+
+		annotation SummarizationSetBy = Automatic
+
+	column typ_konta
+		dataType: string
+		lineageTag: f32c8eb7-1e1e-46cc-a3bd-d5274805f93c
+		summarizeBy: none
+		sourceColumn: typ_konta
+
+		annotation SummarizationSetBy = Automatic
+
+	column nazwa_skrocona
+		dataType: string
+		lineageTag: 67e3f9bf-09bc-4f92-bc99-112c80952546
+		summarizeBy: none
+		sourceColumn: nazwa_skrocona
+
+		annotation SummarizationSetBy = Automatic
+
+	column nazwa_konta
+		dataType: string
+		lineageTag: b5577231-4d50-4ccf-941c-ff2cda2f63c1
+		summarizeBy: none
+		sourceColumn: nazwa_konta
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_utworzenia
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f236161e-f951-456e-a78a-0b52c10f8ee4
+		summarizeBy: none
+		sourceColumn: data_utworzenia
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column sprawozdanie
+		dataType: string
+		lineageTag: 286df42a-198f-4753-8b81-53f8aaacc945
+		summarizeBy: none
+		sourceColumn: sprawozdanie
+
+		annotation SummarizationSetBy = Automatic
+
+	column pozycja_saldo_wn
+		dataType: string
+		lineageTag: 0773be88-26b8-4103-a1be-207cb74bc07a
+		summarizeBy: none
+		sourceColumn: pozycja_saldo_wn
+
+		annotation SummarizationSetBy = Automatic
+
+	column pozycja_saldo_ma
+		dataType: string
+		lineageTag: e53aca66-0794-450b-b465-a10b184c138c
+		summarizeBy: none
+		sourceColumn: pozycja_saldo_ma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_konto = m
+		mode: import
+		queryGroup: 03_gold
+		source =
+				let
+				    Source = silver_ska1,
+				    #"Merged Queries" = Table.NestedJoin(Source, {"numer_konta"}, silver_skat, {"numer_konta"}, "silver_skat", JoinKind.LeftOuter),
+				    #"Expanded silver_skat" = Table.ExpandTableColumn(#"Merged Queries", "silver_skat", {"nazwa_skrocona", "nazwa_konta"}, {"silver_skat.nazwa_skrocona", "silver_skat.nazwa_konta"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Expanded silver_skat",{"numer_konta", "typ_konta", "silver_skat.nazwa_skrocona", "silver_skat.nazwa_konta", "data_utworzenia"}),
+				    #"Added Index" = Table.AddIndexColumn(#"Reordered Columns", "Index", 1, 0, Int64.Type),
+				    #"Merged Queries1" = Table.NestedJoin(#"Added Index", {"Index"}, fs_account, {"Index"}, "fs_account", JoinKind.LeftOuter),
+				    #"Expanded fs_account" = Table.ExpandTableColumn(#"Merged Queries1", "fs_account", {"statement", "account_from", "account_to", "line_id_debit", "line_id_credit"}, {"fs_account.statement", "fs_account.account_from", "fs_account.account_to", "fs_account.line_id_debit", "fs_account.line_id_credit"}),
+				    #"Added Custom" = Table.AddColumn(#"Expanded fs_account", "pasuje", each [numer_konta] >= [fs_account.account_from] and [numer_konta] <= [fs_account.account_to]),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([pasuje] = true)),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"Index", "fs_account.account_from", "fs_account.account_to", "pasuje"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"silver_skat.nazwa_skrocona", "nazwa_skrocona"}, {"silver_skat.nazwa_konta", "nazwa_konta"}, {"fs_account.statement", "sprawozdanie"}, {"fs_account.line_id_debit", "pozycja_saldo_wn"}, {"fs_account.line_id_credit", "pozycja_saldo_ma"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

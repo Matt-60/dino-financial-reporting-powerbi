@@ -1,0 +1,369 @@
+expression silver_bkpf =
+		let
+		    Source = bronze_bkpf,
+		    #"Renamed Columns" = Table.RenameColumns(Source,{{"bukrs", "kod_spolki"}, {"belnr", "numer_dokumentu"}, {"gjahr", "rok_obrotowy"}, {"blart", "rodzaj_dokumentu"}, {"bldat", "data_dokumentu"}, {"budat", "data_ksiegowania"}, {"monat", "okres_ksiegowy"}, {"usnam", "uzytkownik"}, {"tcode", "kod_transakcji"}, {"xblnr", "numer_referencyjny"}, {"bktxt", "tekst_naglowka"}, {"waers", "waluta"}, {"stblg", "numer_dokumentu_storna"}, {"stjah", "rok_dokumentu_storna"}, {"xreversal", "znacznik_storna"}}),
+		    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "data_wprowadzenia",
+		    each DateTime.Date([cpudt]) & DateTime.Time([cputm]), type datetime),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom",{"kod_spolki", "numer_dokumentu", "rok_obrotowy", "rodzaj_dokumentu", "data_dokumentu", "data_ksiegowania", "okres_ksiegowy", "kod_transakcji", "numer_referencyjny", "tekst_naglowka", "waluta", "numer_dokumentu_storna", "rok_dokumentu_storna", "znacznik_storna", "data_wprowadzenia"}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"numer_dokumentu", "rok_obrotowy", "rodzaj_dokumentu", "data_dokumentu", "data_ksiegowania", "okres_ksiegowy", "data_wprowadzenia", "kod_transakcji", "numer_referencyjny", "tekst_naglowka", "waluta", "znacznik_storna"})
+		in
+		    #"Reordered Columns"
+	lineageTag: de51c20d-eb10-4f0b-b6ce-7c7a16762050
+	queryGroup: 02_silver
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression silver_bseg =
+		let
+		    Source = bronze_bseg,
+		    #"Renamed Columns" = Table.RenameColumns(Source,{{"bukrs", "kod_spolki"}, {"belnr", "numer_dokumentu"}, {"gjahr", "rok_obrotowy"}, {"buzei", "numer_pozycji"}, {"bschl", "klucz_ksiegowania"}, {"koart", "rodzaj_konta"}, {"hkont", "numer_konta"}, {"lifnr", "numer_dostawcy"}, {"kunnr", "numer_odbiorcy"}, {"shkzg", "strona"}, {"dmbtr", "kwota_pln"}, {"wrbtr", "kwota_w_walucie"}, {"mwskz", "kod_vat"}, {"sgtxt", "tekst_pozycji"}, {"zuonr", "przypisanie"}, {"augbl", "numer_dokumentu_rozliczenia"}, {"augdt", "data_rozliczenia"}, {"zfbdt", "data_bazowa_platnosci"}, {"zbd1t", "termin_platnosci_dni"}, {"kostl", "mpk"}, {"prctr", "centrum_zysku"}, {"fkber", "obszar_funkcjonalny"}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"kod_spolki", "numer_dokumentu", "rok_obrotowy", "numer_pozycji", "klucz_ksiegowania", "rodzaj_konta", "numer_konta", "numer_odbiorcy", "numer_dostawcy", "strona", "kwota_pln", "kwota_w_walucie", "kod_vat", "tekst_pozycji", "przypisanie", "numer_dokumentu_rozliczenia", "data_rozliczenia", "data_bazowa_platnosci", "termin_platnosci_dni"}),
+		    #"Added Conditional Column" = Table.AddColumn(#"Removed Other Columns", "rodzaj_konta1", each if [rodzaj_konta] = "S" then "księga główna" else if [rodzaj_konta] = "K" then "dostawca" else if [rodzaj_konta] = "D" then "odbiorca" else null),
+		    #"Removed Other Columns1" = Table.SelectColumns(#"Added Conditional Column",{"kod_spolki", "numer_dokumentu", "rok_obrotowy", "numer_pozycji", "klucz_ksiegowania", "numer_konta", "numer_odbiorcy", "numer_dostawcy", "strona", "kwota_pln", "kwota_w_walucie", "kod_vat", "tekst_pozycji", "przypisanie", "numer_dokumentu_rozliczenia", "data_rozliczenia", "data_bazowa_platnosci", "termin_platnosci_dni", "rodzaj_konta1"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Other Columns1",{{"rodzaj_konta1", "rodzaj_konta"}}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns1",{"numer_dokumentu", "rok_obrotowy", "numer_pozycji", "klucz_ksiegowania", "rodzaj_konta", "numer_konta", "numer_odbiorcy", "numer_dostawcy", "strona", "kwota_pln", "kwota_w_walucie", "kod_vat", "tekst_pozycji", "przypisanie", "numer_dokumentu_rozliczenia", "data_rozliczenia", "data_bazowa_platnosci", "termin_platnosci_dni"}),
+		    #"Extracted Last Characters" = Table.TransformColumns(#"Reordered Columns", {{"numer_konta", each Text.End(_, 6), type text}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Extracted Last Characters","S","Wn",Replacer.ReplaceText,{"strona"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","H","Ma",Replacer.ReplaceText,{"strona"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value1",{{"rodzaj_konta", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: e5ca5dc7-150a-4ffb-979e-8a1b101679fc
+	queryGroup: 02_silver
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression silver_ska1 =
+		let
+		    Source = bronze_ska1,
+		    #"Renamed Columns" = Table.RenameColumns(Source,{{"saknr", "numer_konta"}, {"xbilk", "typ_konta_bilansowe"}, {"gvtyp", "typ_konta_wynikowe"}, {"ktoks", "grupa_kont"}, {"erdat", "data_utworzenia"}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"numer_konta", "typ_konta_bilansowe", "typ_konta_wynikowe", "grupa_kont", "data_utworzenia"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Removed Other Columns","BILA","Bilansowe",Replacer.ReplaceText,{"grupa_kont"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","WYNK","Wynikowe",Replacer.ReplaceText,{"grupa_kont"}),
+		    #"Extracted Last Characters" = Table.TransformColumns(#"Replaced Value1", {{"numer_konta", each Text.End(_, 6), type text}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Extracted Last Characters",{{"grupa_kont", "typ_konta"}}),
+		    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1",{"numer_konta", "typ_konta", "data_utworzenia"})
+		in
+		    #"Removed Other Columns1"
+	lineageTag: 16fe6b91-76f4-4a8c-9839-911b80ccae50
+	queryGroup: 02_silver
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression silver_skat =
+		let
+		    Source = bronze_skat,
+		    #"Renamed Columns" = Table.RenameColumns(Source,{{"saknr", "numer_konta"}, {"txt20", "nazwa_skrocona"}, {"txt50", "nazwa_konta"}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"numer_konta", "nazwa_skrocona", "nazwa_konta"}),
+		    #"Extracted Last Characters" = Table.TransformColumns(#"Removed Other Columns", {{"numer_konta", each Text.End(_, 6), type text}})
+		in
+		    #"Extracted Last Characters"
+	lineageTag: a0f5268e-131a-4680-bb90-5eae2cb60d1e
+	queryGroup: 02_silver
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_bkpf =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\bkpf.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"bukrs", type text}, {"belnr", type text}, {"gjahr", Int64.Type}, {"blart", type text}, {"bldat", type date}, {"budat", type date}, {"monat", Int64.Type}, {"cpudt", type date}, {"cputm", type time}, {"usnam", type text}, {"tcode", type text}, {"xblnr", type text}, {"bktxt", type text}, {"waers", type text}, {"stblg", type text}, {"stjah", Int64.Type}, {"xreversal", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 87f30552-7bd1-4f2b-b5cf-a33d1d02763e
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_bseg =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\bseg.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"bukrs", type text}, {"belnr", type text}, {"gjahr", Int64.Type}, {"buzei", Int64.Type}, {"bschl", type text}, {"koart", type text}, {"hkont", type text}, {"kunnr", type text}, {"lifnr", type text}, {"shkzg", type text}, {"dmbtr", type number}, {"wrbtr", type number}, {"mwskz", type text}, {"sgtxt", type text}, {"zuonr", type text}, {"augbl", type text}, {"augdt", type date}, {"zfbdt", type date}, {"zbd1t", Int64.Type}, {"kostl", type text}, {"prctr", type text}, {"fkber", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 2c6f68cb-2aae-4891-92f1-14596fda0cc2
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_cepc =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\cepc.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"prctr", type text}, {"datbi", type date}, {"kokrs", type text}, {"ktext", type text}, {"region", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 72b77744-2866-4b8a-8796-405f726f5e8e
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_csks =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\csks.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"kokrs", type text}, {"kostl", type text}, {"datbi", type date}, {"datab", type date}, {"bukrs", type text}, {"prctr", type text}, {"func_area", type text}, {"ktext", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 60131675-2761-48b9-84d8-8d130ab6399b
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_faglflext =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\faglflext.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"rclnt", type text}, {"ryear", Int64.Type}, {"rldnr", type text}, {"rbukrs", type text}, {"racct", type text}, {"rprctr", type text}, {"drcrk", type text}, {"rpmax", type text}, {"hslvt", type number}, {"hsl01", type number}, {"hsl02", type number}, {"hsl03", type number}, {"hsl04", type number}, {"hsl05", type number}, {"hsl06", type number}, {"hsl07", type number}, {"hsl08", type number}, {"hsl09", type number}, {"hsl10", type number}, {"hsl11", type number}, {"hsl12", type number}, {"hsl13", type number}, {"hsl14", type number}, {"hsl15", type number}, {"hsl16", type number}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 295adc4c-f7cd-4fa4-8725-fe63254f0b26
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_kna1 =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\kna1.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"kunnr", type text}, {"name1", type text}, {"land1", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 3299281e-6ce5-49cb-be4b-607ffe00fb92
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_lfa1 =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\lfa1.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"lifnr", type text}, {"name1", type text}, {"land1", type text}, {"ktokk", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 381ac037-a0fc-4688-9b14-1fdcfa1df2bb
+	queryGroup: 01_bronze
+
+	annotation PBI_ResultType = Table
+
+expression bronze_lfb1 =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\lfb1.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"lifnr", type text}, {"bukrs", type text}, {"akont", type text}, {"zterm", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 94b76610-b196-450d-9e38-c9d0391d1de0
+	queryGroup: 01_bronze
+
+	annotation PBI_ResultType = Table
+
+expression bronze_ska1 =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\ska1.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"ktopl", type text}, {"saknr", type text}, {"xbilk", type text}, {"gvtyp", type text}, {"ktoks", type text}, {"erdat", type date}, {"ernam", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: bb5da9ef-fcfb-4a4b-ab15-2f186bb1cf10
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_skat =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\skat.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"spras", type text}, {"ktopl", type text}, {"saknr", type text}, {"txt20", type text}, {"txt50", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: b4b22d8f-eff2-4f30-8010-a6da6e68370b
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_skb1 =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\skb1.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"bukrs", type text}, {"saknr", type text}, {"waers", type text}, {"mitkz", type text}, {"xopvw", type text}, {"xkres", type text}, {"zuawa", type text}, {"xspeb", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 78645bbc-c7fe-4cca-a2c5-7df6e860439b
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bronze_t003t =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "data\t003t.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    Naglowki = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    PusteNaNull = Table.TransformColumns(Naglowki, {}, each if _ = "" then null else _),
+		    Typy = Table.TransformColumnTypes(PusteNaNull, {{"mandt", type text}, {"spras", type text}, {"blart", type text}, {"ltext", type text}, {"_source_system", type text}, {"_ingested_at", type datetime}, {"_batch_id", type text}}, "en-US")
+		in
+		    Typy
+	lineageTag: 171164a1-eae0-496b-a73f-e4862730e883
+	queryGroup: 01_bronze
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bridge_wynik =
+		let
+		    Source = gold_dim_konto,
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([typ_konta] = "Wynikowe")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"numer_konta"}),
+		    #"Added Index" = Table.AddIndexColumn(#"Removed Other Columns", "Index", 1, 0, Int64.Type),
+		    #"Merged Queries" = Table.NestedJoin(#"Added Index", {"Index"}, linie_wyniku, {"Index"}, "linie_wyniku", JoinKind.LeftOuter),
+		    #"Expanded linie_wyniku" = Table.ExpandTableColumn(#"Merged Queries", "linie_wyniku", {"line_id", "adds_result"}, {"line_id", "adds_result"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Expanded linie_wyniku",{{"line_id", "poziom_0"}}),
+		    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "sprawozdanie", each "BILANS"),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "strona_salda", each "*"),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "ZAKRES", each if [adds_result] = "PRIOR_YEARS" then "LATA_UBIEGLE" else "ROK_BIEZACY"),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom2",{{"ZAKRES", "zakres"}}),
+		    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1",{"numer_konta", "poziom_0", "sprawozdanie", "strona_salda", "zakres"}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns1",{"numer_konta", "sprawozdanie", "strona_salda", "poziom_0", "zakres"})
+		in
+		    #"Reordered Columns"
+	lineageTag: 8892c403-68aa-4d0e-b749-0bd7ae488c1e
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression linie_wyniku =
+		let
+		    Source = gold_dim_pozycja,
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([adds_result] <> "")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"line_id", "adds_result"}),
+		    #"Added Index" = Table.AddIndexColumn(#"Removed Other Columns", "Index", 1, 0, Int64.Type)
+		in
+		    #"Added Index"
+	lineageTag: 729c34da-0935-4937-827a-acc6eb3cfa85
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression formula_skladniki =
+		let
+		    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCoqKd1bSAVGOSrE6yHwnGN8NTd4Nu7wLGt8VxvdE0++Jpt8TTb8ndv3uaHwPGN8HzXwfNPN90Mz3QTPfB818H+zme6HxvZViYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [formula = _t, skladnik = _t]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"formula", type text}, {"skladnik", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: b89df303-0050-4407-9c67-6e7bfe9ab9ce
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression bridge_formuly =
+		let
+		    Source = gold_bridge_konto_pozycja,
+		    #"Merged Queries" = Table.NestedJoin(Source, {"id_pozycji"}, formula_skladniki, {"skladnik"}, "formula_skladniki", JoinKind.Inner),
+		    #"Expanded formula_skladniki" = Table.ExpandTableColumn(#"Merged Queries", "formula_skladniki", {"formula"}, {"formula_skladniki.formula"}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Expanded formula_skladniki",{"id_pozycji"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"formula_skladniki.formula", "id_pozycji"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 603cb938-b3e0-4736-bad3-37fa6c0731ea
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression gold_bridge_konto_pozycja =
+		let
+		    Source = gold_dim_konto,
+		    #"Removed Other Columns" = Table.SelectColumns(Source,{"numer_konta", "sprawozdanie", "pozycja_saldo_wn", "pozycja_saldo_ma"}),
+		    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {"numer_konta", "sprawozdanie"}, "Attribute", "Value"),
+		    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Columns",{{"Attribute", "strona salda"}, {"Value", "poziom_0"}}),
+		    #"Added Conditional Column" = Table.AddColumn(#"Renamed Columns", "Custom", each if [sprawozdanie] = "RZIS" then "OKRES" else "SALDO"),
+		    #"Renamed Columns6" = Table.RenameColumns(#"Added Conditional Column",{{"Custom", "zakres"}, {"strona salda", "strona_salda"}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns6","pozycja_saldo_wn","Wn",Replacer.ReplaceText,{"strona_salda"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","pozycja_saldo_ma","Ma",Replacer.ReplaceText,{"strona_salda"}),
+		    #"Appended Query" = Table.Combine({#"Replaced Value1", bridge_wynik}),
+		    #"Merged Queries" = Table.NestedJoin(#"Appended Query", {"poziom_0"}, gold_dim_pozycja, {"line_id"}, "fs_line", JoinKind.LeftOuter),
+		    #"Expanded fs_line" = Table.ExpandTableColumn(#"Merged Queries", "fs_line", {"parent_line_id"}, {"parent_line_id"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Expanded fs_line",{{"parent_line_id", "poziom_1"}}),
+		    #"Merged Queries1" = Table.NestedJoin(#"Renamed Columns1", {"poziom_1"}, gold_dim_pozycja, {"line_id"}, "fs_line", JoinKind.LeftOuter),
+		    #"Expanded fs_line1" = Table.ExpandTableColumn(#"Merged Queries1", "fs_line", {"parent_line_id"}, {"parent_line_id"}),
+		    #"Renamed Columns2" = Table.RenameColumns(#"Expanded fs_line1",{{"parent_line_id", "poziom_2"}}),
+		    #"Merged Queries2" = Table.NestedJoin(#"Renamed Columns2", {"poziom_2"}, gold_dim_pozycja, {"line_id"}, "fs_line", JoinKind.LeftOuter),
+		    #"Expanded fs_line2" = Table.ExpandTableColumn(#"Merged Queries2", "fs_line", {"parent_line_id"}, {"parent_line_id"}),
+		    #"Renamed Columns3" = Table.RenameColumns(#"Expanded fs_line2",{{"parent_line_id", "poziom_3"}}),
+		    #"Merged Queries3" = Table.NestedJoin(#"Renamed Columns3", {"poziom_3"}, gold_dim_pozycja, {"line_id"}, "fs_line", JoinKind.LeftOuter),
+		    #"Expanded fs_line3" = Table.ExpandTableColumn(#"Merged Queries3", "fs_line", {"parent_line_id"}, {"parent_line_id"}),
+		    #"Renamed Columns4" = Table.RenameColumns(#"Expanded fs_line3",{{"parent_line_id", "poziom_4"}}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns4",{"numer_konta", "sprawozdanie", "strona_salda", "zakres", "poziom_0", "poziom_1", "poziom_2", "poziom_3", "poziom_4"}),
+		    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Reordered Columns", {"numer_konta", "sprawozdanie", "strona_salda", "zakres"}, "Attribute", "Value"),
+		    #"Removed Columns" = Table.RemoveColumns(#"Unpivoted Other Columns",{"Attribute"}),
+		    #"Renamed Columns5" = Table.RenameColumns(#"Removed Columns",{{"Value", "id_pozycji"}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns5", each ([id_pozycji] <> ""))
+		in
+		    #"Filtered Rows"
+	lineageTag: 76c6f780-36e6-4532-bd24-1625b54ed06c
+	queryGroup: 03_gold
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression fs_account =
+		let
+		    Source = Csv.Document(File.Contents(FolderDanych & "fsv\data\fs_account.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"statement", type text}, {"account_from", type text}, {"account_to", type text}, {"line_id_debit", type text}, {"line_id_credit", type text}, {"comment", type text}}),
+		    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 0, Int64.Type)
+		in
+		    #"Added Index"
+	lineageTag: 3749c0be-4b55-42fa-abdb-4190ce11c7f9
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression FolderDanych = "C:\Users\mkowa\OneDrive\Documents\dino\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: c631b07e-2496-4faa-9f08-44bbdb533e0c
+
+	annotation PBI_ResultType = Text
+

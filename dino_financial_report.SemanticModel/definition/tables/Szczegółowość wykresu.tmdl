@@ -1,0 +1,49 @@
+table 'Szczegółowość wykresu'
+	lineageTag: c9446959-1d95-4a73-a95e-f3f2a08e6074
+
+	column 'Szczegółowość wykresu'
+		lineageTag: 2b2d7332-b19b-4f39-9bb1-9c867c2c5638
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Szczegółowość wykresu Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Szczegółowość wykresu Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Szczegółowość wykresu Fields'
+		isHidden
+		lineageTag: 4c27eec0-ae33-42eb-8acb-86f3571c9e29
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Szczegółowość wykresu Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Szczegółowość wykresu Order'
+		isHidden
+		formatString: 0
+		lineageTag: 148b5917-4f52-4574-b1a1-175d1ebd69de
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Szczegółowość wykresu' = calculated
+		mode: import
+		source =
+				{
+				    ("Rok", NAMEOF('gold_dim_kalendarz'[Rok]), 0),
+				    ("Kwartał", NAMEOF('gold_dim_kalendarz'[Rok kwartał]), 1),
+				    ("Miesiąc nr", NAMEOF('gold_dim_kalendarz'[Rok miesiąc]), 2)
+				}
+
+	annotation PBI_Id = d445f1c9350d48338e5490957758833e
+

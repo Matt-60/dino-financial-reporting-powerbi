@@ -1,0 +1,5 @@
+mandt,kunnr,name1,land1,_source_system,_ingested_at,_batch_id
+800,0000500001,Hurtownia Spożywcza Regionalna Sp. z o.o.,PL,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,0000500002,Gastronomia Catering Sp. z o.o.,PL,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,0000500003,Sieć Stacji Paliw Sp. z o.o.,PL,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,0000600001,Agent rozliczeniowy płatności kartowych S.A.,PL,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101

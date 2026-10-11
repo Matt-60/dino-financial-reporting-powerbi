@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "dino_financial_report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a282734a-7a00-4469-8932-210dee4f3bb5"
+  }
+}

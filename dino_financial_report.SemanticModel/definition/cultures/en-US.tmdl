@@ -1,0 +1,6676 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "gold_dim_kalendarz": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gold dim kalendarz": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gold_dim_kalendarz": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "gold_dim_kalendarz.rok": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Rok"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rok": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.kwartał": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Kwartał"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kwartał": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.rok_kwartał": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Rok kwartał"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rok kwartał": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Kwartał": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.rok_kwartał_nr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Rok kwartał nr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rok kwartał nr": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.miesiąc_nr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Miesiąc nr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "miesiąc nr": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.miesiąc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Miesiąc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "miesiąc": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.miesiąc_skrót": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Miesiąc skrót"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "miesiąc skrót": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.rok_miesiąc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Rok miesiąc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rok miesiąc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Miesiąc nr": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.rok_miesiąc_nr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Rok miesiąc nr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rok miesiąc nr": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.dzień": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Dzień"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dzień": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.dzień_tygodnia_nr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Dzień tygodnia nr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dzień tygodnia nr": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.dzień_tygodnia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Dzień tygodnia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dzień tygodnia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.tydzień_ISO": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Tydzień ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tydzień ISO": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.koniec_miesiąca": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Koniec miesiąca"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "koniec miesiąca": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.koniec_kwartału": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Koniec kwartału"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "koniec kwartału": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.święto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Święto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "święto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.dzień_roboczy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Dzień roboczy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dzień roboczy": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz.dzień_wolny": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_kalendarz",
+			          "ConceptualProperty": "Dzień wolny"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dzień wolny": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gold fct ksiegowania": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gold_fct_ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.numer_dokumentu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "numer_dokumentu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "numer dokumentu": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "numer_dokumentu": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.numer_pozycji": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "numer_pozycji"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "numer pozycji": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "numer_pozycji": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.numer_konta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "numer_konta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "numer konta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "numer_konta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.strona": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "strona"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "strona": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.kwota_pln": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "kwota_pln"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kwota pln": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "kwota_pln": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.rodzaj_dokumentu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "rodzaj_dokumentu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rodzaj dokumentu": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rodzaj_dokumentu": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.data_ksiegowania": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "data_ksiegowania"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "data ksiegowania": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data_ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "information ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "fact ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "info ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "statistic ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "document ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "figure ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "record ksiegowania": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "gold_fct_ksiegowania.kwota": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "kwota"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kwota": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.kwota_pozycji": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Kwota pozycji"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kwota pozycji": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.przychodów": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "% przychodów"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% przychodów": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage przychodów": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "pct przychodów": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.przychody_netto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Przychody netto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "przychody netto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.zysk_ze_sprzedaży": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Zysk ze sprzedaży"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "zysk ze sprzedaży": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.zysk_operacyjny": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Zysk operacyjny"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "zysk operacyjny": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.zysk_netto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Zysk netto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "zysk netto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.rentowność_netto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Rentowność netto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rentowność netto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.rentowność_sprzedaży": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Rentowność sprzedaży"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rentowność sprzedaży": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.ebitda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "EBITDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ebitda": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.marża_EBITDA": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "Marża EBITDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "marża EBITDA": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__kwota_pozycji_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Kwota pozycji FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_kwota pozycji FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity___przychodów_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_% przychodów FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_% przychodów FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ percentage przychodów formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "_ pct przychodów formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__przychody_netto_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Przychody netto FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_przychody netto FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__zysk_ze_sprzedaży_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Zysk ze sprzedaży FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_zysk ze sprzedaży FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__zysk_operacyjny_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Zysk operacyjny FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_zysk operacyjny FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__zysk_netto_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Zysk netto FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_zysk netto FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__rentowność_netto_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Rentowność netto FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_rentowność netto FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__rentowność_sprzedaży_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Rentowność sprzedaży FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_rentowność sprzedaży FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__EBITDA_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_EBITDA FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_EBITDA FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.entity__marża_EBITDA_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "_Marża EBITDA FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_marża EBITDA FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gold dim konto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gold_dim_konto": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.numer_konta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "numer_konta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "numer konta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "numer_konta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.typ_konta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "typ_konta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "typ konta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "typ_konta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.nazwa_skrocona": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "nazwa_skrocona"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nazwa skrocona": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nazwa_skrocona": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.nazwa_konta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "nazwa_konta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nazwa konta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nazwa_konta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.data_utworzenia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "data_utworzenia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "data utworzenia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data_utworzenia": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "information utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "fact utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "info utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "statistic utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "document utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "figure utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "record utworzenia": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "gold_dim_konto.sprawozdanie": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "sprawozdanie"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sprawozdanie": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.pozycja_saldo_wn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "pozycja_saldo_wn"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pozycja saldo wn": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pozycja_saldo_wn": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_konto.pozycja_saldo_ma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_konto",
+			          "ConceptualProperty": "pozycja_saldo_ma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pozycja saldo ma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pozycja_saldo_ma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "pozycja saldo mom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mam": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mater": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pozycja saldo mother": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "pozycja saldo mum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "gold_bridge": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_bridge"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gold bridge": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gold_bridge": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "trophy most": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "title most": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "medal most": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "jewelry most": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "gold_bridge.numer_konta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_bridge",
+			          "ConceptualProperty": "numer_konta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "numer konta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "numer_konta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_bridge.sprawozdanie": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_bridge",
+			          "ConceptualProperty": "sprawozdanie"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sprawozdanie": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_bridge.strona_salda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_bridge",
+			          "ConceptualProperty": "strona_salda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "strona salda": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "strona_salda": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_bridge.zakre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_bridge",
+			          "ConceptualProperty": "zakres"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "zakre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_bridge.id_pozycji": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_bridge",
+			          "ConceptualProperty": "id_pozycji"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id pozycji": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_pozycji": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification pozycji": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity pozycji": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier pozycji": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential pozycji": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gold dim pozycja": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gold_dim_pozycja": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.statement": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "statement"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "statement": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "declaration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "announcement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "speech": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "proclamation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "avowal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "testimony": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "assertion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "report": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "testimonial": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.line_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "line_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "line id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "line_id": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "line identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "line identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "line identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "line credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.line_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "line_code"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "line code": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "line_code": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "line key": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.line_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "line_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "line name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "line_name": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "line nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "line title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "line label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "line tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.parent_line_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "parent_line_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parent line id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "parent_line_id": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "parent line": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "parent line identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "parent line identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "parent line identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "parent line credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "parent streak": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parent stroke": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parent stripe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parent contour": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parent mark": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parent connection": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.level": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "level"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "level": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "threshold": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "grade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "point": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "tier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.sort_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "sort_order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sort order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sort_order": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "sort instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sort direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sort edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "sort command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sort directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sort demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sort mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.line_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "line_type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "line type": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "line_type": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "type": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "line category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "line genre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "line manner": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "line variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "genre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "manner": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "line brand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "line class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.formula": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "formula"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "formula": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "formulation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "formulary": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "method": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "recipe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "prescription": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "procedure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "principle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "plan": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "rule": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "blueprint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.display_sign": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "display_sign"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "display sign": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "display_sign": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "sign": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "display emblem": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "display logo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "emblem": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "logo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "display symbol": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "display mark": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "display insigne": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "display badge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "symbol": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "mark": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.is_bold": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "is_bold"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "is bold": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "is_bold": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.adds_result": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "adds_result"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "adds result": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "adds_result": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "adds consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "adds outcome": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "adds upshot": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "adds product": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "adds effect": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "adds end": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "adds mark": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "adds grade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "adds score": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "adds calculation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.znak": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "znak"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "znak": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja.pozycja": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dim_pozycja",
+			          "ConceptualProperty": "pozycja"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pozycja": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "comparision": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Comparison"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "comparision": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "comparision.porównanie": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Comparison",
+			          "ConceptualProperty": "Porównanie"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "porównanie": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "comparision.ordinal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Comparison",
+			          "ConceptualProperty": "Ordinal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ordinal": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "parameter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Miara RZiS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parameter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "stricture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "limitation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "restriction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "constraint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "consideration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "boundary": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "limit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "bound": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "factor": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "issue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "parameter.parameter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Miara RZiS",
+			          "ConceptualProperty": "Miara RZiS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parameter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "parameter name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "stricture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "limitation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "restriction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "constraint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "consideration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "boundary": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "limit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "bound": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "factor": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "issue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "Miara": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "parameter.parameter_field": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Miara RZiS",
+			          "ConceptualProperty": "Parameter Fields"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parameter field": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "field": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "parameter arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "parameter turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parameter ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parameter pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parameter park": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "park": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "parameter.parameter_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Miara RZiS",
+			          "ConceptualProperty": "Parameter Order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "parameter order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "parameter instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "parameter direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "parameter edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "parameter command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parameter directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parameter demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "parameter mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "szczegółowość_wykresu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Szczegółowość wykresu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "szczegółowość wykresu": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "szczegółowość_wykresu.szczegółowość_wykresu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Szczegółowość wykresu",
+			          "ConceptualProperty": "Szczegółowość wykresu"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "szczegółowość wykresu": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Oś trendu (podpowiedzi)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "szczegółowość_wykresu.szczegółowość_wykresu_field": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Szczegółowość wykresu",
+			          "ConceptualProperty": "Szczegółowość wykresu Fields"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "szczegółowość wykresu field": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu park": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu meadow": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu grassland": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu lea": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu pasture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu countryside": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "szczegółowość_wykresu.szczegółowość_wykresu_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Szczegółowość wykresu",
+			          "ConceptualProperty": "Szczegółowość wykresu Order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "szczegółowość wykresu order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu imperative": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu stability": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "szczegółowość wykresu harmony": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        }
+			      ]
+			    },
+			    "parameter_2.parameter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Miara bilans",
+			          "ConceptualProperty": "Miara bilans"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Miara": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.koh__bridge": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "KOH – bridge"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Kapitał obrotowy": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania.sumy_bilansowej": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_fct_ksiegowania",
+			          "ConceptualProperty": "% sumy bilansowej"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% sumy bilansowej": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "parameter_is_named_parameter": {
+			      "Binding": {
+			        "ConceptualEntity": "Miara RZiS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "parameter": {
+			          "Target": {
+			            "Entity": "parameter"
+			          }
+			        },
+			        "parameter.parameter": {
+			          "Target": {
+			            "Entity": "parameter.parameter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "parameter"
+			            },
+			            "Name": {
+			              "Role": "parameter.parameter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parameters_are_names_IDs_of_parameters"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "parameter"
+			            },
+			            "Object": {
+			              "Role": "parameter.parameter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parameters_have_parameters"
+			        }
+			      ]
+			    },
+			    "szczegółowość_wykresu_is_named_szczegółowość_wykresu": {
+			      "Binding": {
+			        "ConceptualEntity": "Szczegółowość wykresu"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "szczegółowość_wykresu": {
+			          "Target": {
+			            "Entity": "szczegółowość_wykresu"
+			          }
+			        },
+			        "szczegółowość_wykresu.szczegółowość_wykresu": {
+			          "Target": {
+			            "Entity": "szczegółowość_wykresu.szczegółowość_wykresu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "szczegółowość_wykresu"
+			            },
+			            "Name": {
+			              "Role": "szczegółowość_wykresu.szczegółowość_wykresu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "szczegółowość_wykresus_are_names_IDs_of_szczegółowość_wykresus"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "szczegółowość_wykresu"
+			            },
+			            "Object": {
+			              "Role": "szczegółowość_wykresu.szczegółowość_wykresu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "szczegółowość_wykresus_have_szczegółowość_wykresus"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_is_bold": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.is_bold": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.is_bold"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Adjectives": [
+			              {
+			                "bold": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "gold_dim_pozycja.is_bold"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "is_bold_indicates_how_bold_gold_dim_pozycjas_are"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.is_bold"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_is_bold"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_date": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.date": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_dates"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_rok": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.rok": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.rok"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.rok"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_roks"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.kwartał": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_kwartał"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_rok_kwartał": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.rok_kwartał": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.rok_kwartał"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.rok_kwartał"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_rok_kwartał"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_rok_kwartał_nr": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.rok_kwartał_nr": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.rok_kwartał_nr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.rok_kwartał_nr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_rok_kwartał_nr"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_miesiąc_nr": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.miesiąc_nr": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.miesiąc_nr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.miesiąc_nr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_miesiąc_nr"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.miesiąc": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_miesiącs"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_miesiąc_skrót": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.miesiąc_skrót": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.miesiąc_skrót"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.miesiąc_skrót"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_miesiąc_skróts"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_rok_miesiąc": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.rok_miesiąc": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.rok_miesiąc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.rok_miesiąc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_rok_miesiącs"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_rok_miesiąc_nr": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.rok_miesiąc_nr": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.rok_miesiąc_nr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.rok_miesiąc_nr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_rok_miesiąc_nr"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_dzień": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.dzień": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.dzień"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.dzień"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_dzień"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_dzień_tygodnia_nr": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.dzień_tygodnia_nr": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.dzień_tygodnia_nr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.dzień_tygodnia_nr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_dzień_tygodnia_nr"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_dzień_tygodnia": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.dzień_tygodnia": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.dzień_tygodnia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.dzień_tygodnia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_dzień_tygodnias"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_tydzień_ISO": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.tydzień_ISO": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.tydzień_ISO"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.tydzień_ISO"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_tydzień_ISO"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_koniec_miesiąca": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.koniec_miesiąca": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.koniec_miesiąca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.koniec_miesiąca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_koniec_miesiącas"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_koniec_kwartału": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.koniec_kwartału": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.koniec_kwartału"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.koniec_kwartału"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_koniec_kwartałus"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_święto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.święto": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.święto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.święto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_świętos"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_dzień_roboczy": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.dzień_roboczy": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.dzień_roboczy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.dzień_roboczy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_dzień_roboczys"
+			        }
+			      ]
+			    },
+			    "gold_dim_kalendarz_has_dzień_wolny": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_kalendarz"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        },
+			        "gold_dim_kalendarz.dzień_wolny": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz.dzień_wolny"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz.dzień_wolny"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_dzień_wolnies"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_numer_dokumentu": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.numer_dokumentu": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.numer_dokumentu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.numer_dokumentu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_numer_dokumentus"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_numer_pozycji": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.numer_pozycji": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.numer_pozycji"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.numer_pozycji"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_numer_pozycjis"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_strona": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.strona": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.strona"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.strona"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_stronas"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_kwota_pln": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.kwota_pln": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.kwota_pln"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.kwota_pln"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_kwota_plns"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_rodzaj_dokumentu": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rodzaj_dokumentu": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rodzaj_dokumentu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rodzaj_dokumentu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_rodzaj_dokumentus"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_data_ksiegowania": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.data_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.data_ksiegowania"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.data_ksiegowania"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_data_ksiegowanias"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_kwota": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.kwota": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.kwota"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.kwota"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_kwotas"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_kwota_pozycji": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.kwota_pozycji": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.kwota_pozycji"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.kwota_pozycji"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_kwota_pozycji"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_kwota_pozycji": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.kwota_pozycji": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.kwota_pozycji"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.kwota_pozycji"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_kwota_pozycji"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_kwota_pozycji": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.kwota_pozycji": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.kwota_pozycji"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.kwota_pozycji"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_kwota_pozycji"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_przychodów": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.przychodów": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.przychodów"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.przychodów"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have__przychodów"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_przychodów": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.przychodów": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.przychodów"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.przychodów"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have__przychodów"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_przychodów": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.przychodów": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.przychodów"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.przychodów"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have__przychodów"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_przychody_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.przychody_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.przychody_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.przychody_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_przychody_netto"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_przychody_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.przychody_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.przychody_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.przychody_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_przychody_netto"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_przychody_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.przychody_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.przychody_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.przychody_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_przychody_netto"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_zysk_ze_sprzedaży": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_ze_sprzedaży": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_ze_sprzedaży"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_ze_sprzedaży"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_zysk_ze_sprzedaży"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_zysk_ze_sprzedaży": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_ze_sprzedaży": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_ze_sprzedaży"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_ze_sprzedaży"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_zysk_ze_sprzedaży"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_zysk_ze_sprzedaży": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_ze_sprzedaży": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_ze_sprzedaży"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_ze_sprzedaży"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_zysk_ze_sprzedaży"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_zysk_operacyjny": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_operacyjny": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_operacyjny"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_operacyjny"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_zysk_operacyjny"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_zysk_operacyjny": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_operacyjny": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_operacyjny"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_operacyjny"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_zysk_operacyjny"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_zysk_operacyjny": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_operacyjny": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_operacyjny"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_operacyjny"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_zysk_operacyjny"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_zysk_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_zysk_netto"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_zysk_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_zysk_netto"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_zysk_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.zysk_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.zysk_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.zysk_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_zysk_netto"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_rentowność_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rentowność_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rentowność_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rentowność_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_rentowność_netto"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_rentowność_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rentowność_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rentowność_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rentowność_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_rentowność_netto"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_rentowność_netto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rentowność_netto": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rentowność_netto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rentowność_netto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_rentowność_netto"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_rentowność_sprzedaży": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rentowność_sprzedaży": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rentowność_sprzedaży"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rentowność_sprzedaży"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_rentowność_sprzedaży"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_rentowność_sprzedaży": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rentowność_sprzedaży": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rentowność_sprzedaży"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rentowność_sprzedaży"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_rentowność_sprzedaży"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_rentowność_sprzedaży": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.rentowność_sprzedaży": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.rentowność_sprzedaży"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.rentowność_sprzedaży"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_rentowność_sprzedaży"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_ebitda": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.ebitda": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.ebitda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.ebitda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_ebitda"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_ebitda": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.ebitda": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.ebitda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.ebitda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_ebitda"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_ebitda": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.ebitda": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.ebitda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.ebitda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_ebitda"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_gold_fct_ksiegowania_marża_EBITDA": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_fct_ksiegowania.marża_EBITDA": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.marża_EBITDA"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.marża_EBITDA"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_marża_EBITDA"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_marża_EBITDA": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_fct_ksiegowania.marża_EBITDA": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.marża_EBITDA"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.marża_EBITDA"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_marża_EBITDA"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_fct_ksiegowania_marża_EBITDA": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_fct_ksiegowania.marża_EBITDA": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania.marża_EBITDA"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania.marża_EBITDA"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_marża_EBITDA"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_numer_konta": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.numer_konta": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.numer_konta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.numer_konta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_numer_kontas"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_typ_konta": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.typ_konta": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.typ_konta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.typ_konta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_typ_kontas"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_nazwa_skrocona": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.nazwa_skrocona": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.nazwa_skrocona"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.nazwa_skrocona"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_nazwa_skroconas"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_nazwa_konta": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.nazwa_konta": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.nazwa_konta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.nazwa_konta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_nazwa_kontas"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_data_utworzenia": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.data_utworzenia": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.data_utworzenia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.data_utworzenia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_data_utworzenias"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_sprawozdanie": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.sprawozdanie": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.sprawozdanie"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.sprawozdanie"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_sprawozdanies"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_pozycja_saldo_wn": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.pozycja_saldo_wn": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.pozycja_saldo_wn"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.pozycja_saldo_wn"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_pozycja_saldo_wns"
+			        }
+			      ]
+			    },
+			    "gold_dim_konto_has_pozycja_saldo_ma": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_konto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        },
+			        "gold_dim_konto.pozycja_saldo_ma": {
+			          "Target": {
+			            "Entity": "gold_dim_konto.pozycja_saldo_ma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto.pozycja_saldo_ma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_pozycja_saldo_ma"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_numer_konta": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_bridge.numer_konta": {
+			          "Target": {
+			            "Entity": "gold_bridge.numer_konta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_bridge.numer_konta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_numer_kontas"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_sprawozdanie": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_bridge.sprawozdanie": {
+			          "Target": {
+			            "Entity": "gold_bridge.sprawozdanie"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_bridge.sprawozdanie"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_sprawozdanies"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_strona_salda": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_bridge.strona_salda": {
+			          "Target": {
+			            "Entity": "gold_bridge.strona_salda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_bridge.strona_salda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_strona_saldas"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_zakre": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_bridge.zakre": {
+			          "Target": {
+			            "Entity": "gold_bridge.zakre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_bridge.zakre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_zakres"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_statement": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.statement": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.statement"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.statement"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_statements"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_line_id": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.line_id": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.line_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.line_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_line_ids"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_line_code": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.line_code": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.line_code"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.line_code"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_line_codes"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_line_name": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.line_name": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.line_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.line_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_line_names"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_parent_line_id": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.parent_line_id": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.parent_line_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.parent_line_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_parent_line_ids"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_level": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.level": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.level"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.level"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_levels"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_sort_order": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.sort_order": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.sort_order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.sort_order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_sort_orders"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_line_type": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.line_type": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.line_type"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.line_type"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_line_types"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_formula": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.formula": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.formula"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.formula"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_formulae"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_display_sign": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.display_sign": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.display_sign"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.display_sign"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_display_signs"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_adds_result": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.adds_result": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.adds_result"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.adds_result"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_adds_result"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_znak": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.znak": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.znak"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.znak"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_znaks"
+			        }
+			      ]
+			    },
+			    "gold_dim_pozycja_has_pozycja": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dim_pozycja"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        },
+			        "gold_dim_pozycja.pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja.pozycja"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja.pozycja"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_pozycjas"
+			        }
+			      ]
+			    },
+			    "comparision_has_porównanie": {
+			      "Binding": {
+			        "ConceptualEntity": "Comparison"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "comparision": {
+			          "Target": {
+			            "Entity": "comparision"
+			          }
+			        },
+			        "comparision.porównanie": {
+			          "Target": {
+			            "Entity": "comparision.porównanie"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "comparision"
+			            },
+			            "Object": {
+			              "Role": "comparision.porównanie"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "comparisions_have_porównanies"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_gold_dim_konto": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_dim_konto": {
+			          "Target": {
+			            "Entity": "gold_dim_konto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_konto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_gold_dim_kontos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_konto"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kontos_have_gold_fct_ksiegowanias"
+			        }
+			      ]
+			    },
+			    "gold_fct_ksiegowania_has_gold_dim_kalendarz": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_fct_ksiegowania"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_fct_ksiegowania": {
+			          "Target": {
+			            "Entity": "gold_fct_ksiegowania"
+			          }
+			        },
+			        "gold_dim_kalendarz": {
+			          "Target": {
+			            "Entity": "gold_dim_kalendarz"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_fct_ksiegowania"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_kalendarz"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_fct_ksiegowanias_have_gold_dim_kalendarzzes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_kalendarz"
+			            },
+			            "Object": {
+			              "Role": "gold_fct_ksiegowania"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_kalendarzzes_have_gold_fct_ksiegowanias"
+			        }
+			      ]
+			    },
+			    "gold_bridge_has_gold_dim_pozycja": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_bridge"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "gold_bridge": {
+			          "Target": {
+			            "Entity": "gold_bridge"
+			          }
+			        },
+			        "gold_dim_pozycja": {
+			          "Target": {
+			            "Entity": "gold_dim_pozycja"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_bridge"
+			            },
+			            "Object": {
+			              "Role": "gold_dim_pozycja"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_bridge_have_gold_dim_pozycjas"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "gold_dim_pozycja"
+			            },
+			            "Object": {
+			              "Role": "gold_bridge"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "gold_dim_pozycjas_have_gold_bridge"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

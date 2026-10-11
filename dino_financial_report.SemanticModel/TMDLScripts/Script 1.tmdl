@@ -1,0 +1,222 @@
+createOrReplace
+
+	ref table gold_fct_ksiegowania
+
+		/// Wartość pozycji RZiS lub bilansu w mln zł. RZiS: obroty okresu; bilans: stan na ostatni dzień okresu. Wymaga jednej wybranej pozycji (gold_dim_pozycja[line_id]).
+		measure 'Kwota pozycji' = ```
+				VAR _pozycja      = SELECTEDVALUE ( gold_dim_pozycja[line_id] )
+				VAR _sprawozdanie = SELECTEDVALUE ( gold_dim_pozycja[statement] )
+				VAR _znak         = SELECTEDVALUE ( gold_dim_pozycja[znak] )
+				VAR _dataKonca    = MAX ( gold_dim_kalendarz[Date] )
+				VAR _poczatekRoku = DATE ( YEAR ( _dataKonca ), 1, 1 )
+				-- wiersze mostu dla wybranej pozycji, tylko konta widoczne w kontekście (drążenie do kont)
+				VAR _most =
+				    CALCULATETABLE (
+				        SUMMARIZE ( gold_most, gold_most[numer_konta], gold_most[strona_salda], gold_most[zakres] ),
+				        REMOVEFILTERS ( gold_dim_pozycja ),
+				        gold_most[id_pozycji] = _pozycja,
+				        TREATAS ( VALUES ( gold_dim_konto[numer_konta] ), gold_most[numer_konta] )
+				    )
+				-- RZiS: obroty kont pozycji w wybranym okresie
+				VAR _rzis =
+				    CALCULATE (
+				        SUM ( gold_fct_ksiegowania[kwota] ),
+				        KEEPFILTERS ( TREATAS ( SELECTCOLUMNS ( _most, "k", gold_most[numer_konta] ), gold_dim_konto[numer_konta] ) )
+				    )
+				-- Bilans: saldo konta na koniec okresu; konto liczy się tylko w pozycji właściwej dla strony salda
+				VAR _bilans =
+				    SUMX (
+				        _most,
+				        VAR _konto  = gold_most[numer_konta]
+				        VAR _zakres = gold_most[zakres]
+				        VAR _od = IF ( _zakres = "ROK_BIEZACY", _poczatekRoku, DATE ( 1900, 1, 1 ) )
+				        VAR _do = IF ( _zakres = "LATA_UBIEGLE", _poczatekRoku - 1, _dataKonca )
+				        VAR _saldo =
+				            CALCULATE (
+				                SUM ( gold_fct_ksiegowania[kwota] ),
+				                gold_dim_konto[numer_konta] = _konto,
+				                REMOVEFILTERS ( gold_dim_kalendarz ),
+				                gold_dim_kalendarz[Date] >= _od && gold_dim_kalendarz[Date] <= _do
+				            )
+				        RETURN
+				            IF ( _zakres <> "SALDO" || gold_most[strona_salda] = IF ( _saldo >= 0, "Wn", "Ma" ), _saldo )
+				    )
+				RETURN
+				    IF (
+				        NOT ISBLANK ( _pozycja ),
+				        SWITCH ( _sprawozdanie, "RZIS", _rzis, "BILANS", _bilans ) * _znak / 1000000
+				    )
+				```
+			formatString: #,0.0
+			displayFolder: Sprawozdania
+
+		/// Udział pozycji RZiS w przychodach netto ze sprzedaży (A).
+		measure '% przychodów' = ```
+				VAR _przychody =
+				    CALCULATE (
+				        [Kwota pozycji],
+				        REMOVEFILTERS ( gold_dim_pozycja ),
+				        REMOVEFILTERS ( gold_dim_konto ),
+				        gold_dim_pozycja[line_id] = "RZ_A"
+				    )
+				RETURN
+				    DIVIDE ( [Kwota pozycji], _przychody )
+				```
+			formatString: 0.0%
+			displayFolder: Sprawozdania
+
+		/// A. Przychody netto ze sprzedaży i zrównane z nimi, mln zł.
+		measure 'Przychody netto' = ```
+				CALCULATE (
+				    [Kwota pozycji],
+				    REMOVEFILTERS ( gold_dim_pozycja ),
+				    gold_dim_pozycja[line_id] = "RZ_A"
+				)
+				```
+			formatString: #,0.0
+			displayFolder: KPI
+
+		/// C. Zysk (strata) ze sprzedaży, mln zł.
+		measure 'Zysk ze sprzedaży' = ```
+				CALCULATE (
+				    [Kwota pozycji],
+				    REMOVEFILTERS ( gold_dim_pozycja ),
+				    gold_dim_pozycja[line_id] = "RZ_C"
+				)
+				```
+			formatString: #,0.0
+			displayFolder: KPI
+
+		/// F. Zysk (strata) z działalności operacyjnej, mln zł.
+		measure 'Zysk operacyjny' = ```
+				CALCULATE (
+				    [Kwota pozycji],
+				    REMOVEFILTERS ( gold_dim_pozycja ),
+				    gold_dim_pozycja[line_id] = "RZ_F"
+				)
+				```
+			formatString: #,0.0
+			displayFolder: KPI
+
+		/// L. Zysk (strata) netto, mln zł.
+		measure 'Zysk netto' = ```
+				CALCULATE (
+				    [Kwota pozycji],
+				    REMOVEFILTERS ( gold_dim_pozycja ),
+				    gold_dim_pozycja[line_id] = "RZ_L"
+				)
+				```
+			formatString: #,0.0
+			displayFolder: KPI
+
+		/// Zysk netto / przychody netto.
+		measure 'Rentowność netto' = ```
+				DIVIDE (
+				    CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), gold_dim_pozycja[line_id] = "RZ_L" ),
+				    CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), gold_dim_pozycja[line_id] = "RZ_A" )
+				)
+				```
+			formatString: 0.0%
+			displayFolder: KPI
+
+		/// Zysk ze sprzedaży / przychody netto.
+		measure 'Rentowność sprzedaży' = ```
+				DIVIDE (
+				    CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), gold_dim_pozycja[line_id] = "RZ_C" ),
+				    CALCULATE ( [Kwota pozycji], REMOVEFILTERS ( gold_dim_pozycja ), gold_dim_pozycja[line_id] = "RZ_A" )
+				)
+				```
+			formatString: 0.0%
+			displayFolder: KPI
+
+	/// Porównania okresów. Każdy element wyłącza filtr grupy, żeby nie zadziałać drugi raz w miarach zagnieżdżonych (np. % przychodów, KPI).
+	table Comparision
+
+		calculationGroup
+			precedence: 0
+
+			calculationItem 'Bieżący okres' = ```
+					CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 0
+
+			calculationItem 'PY' = ```
+					CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 1
+
+			calculationItem 'Δ r/r' = ```
+					VAR _biezacy = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					VAR _py = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					RETURN _biezacy - _py
+					```
+				ordinal: 2
+
+			calculationItem 'Δ% r/r' = ```
+					VAR _biezacy = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					VAR _py = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					RETURN
+					    IF (
+					        CONTAINSSTRING ( SELECTEDMEASUREFORMATSTRING (), "%" ),   -- miary procentowe: Δ% nie ma sensu
+					        BLANK (),
+					        DIVIDE ( _biezacy - _py, ABS ( _py ) )
+					    )
+					```
+				ordinal: 3
+				formatStringDefinition = "0.0%"
+
+			calculationItem 'YTD' = ```
+					CALCULATE ( SELECTEDMEASURE (), DATESYTD ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 4
+
+			calculationItem 'YTD PY' = ```
+					CALCULATE ( SELECTEDMEASURE (), DATESYTD ( SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 5
+
+			calculationItem 'QTD' = ```
+					CALCULATE ( SELECTEDMEASURE (), DATESQTD ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 6
+
+			calculationItem 'QTD PY' = ```
+					CALCULATE ( SELECTEDMEASURE (), DATESQTD ( SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 7
+
+			calculationItem 'MTD' = ```
+					CALCULATE ( SELECTEDMEASURE (), DATESMTD ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 8
+
+			calculationItem 'MTD PY' = ```
+					CALCULATE ( SELECTEDMEASURE (), DATESMTD ( SAMEPERIODLASTYEAR ( gold_dim_kalendarz[Date] ) ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 9
+
+			calculationItem 'PQ' = ```
+					CALCULATE ( SELECTEDMEASURE (), PREVIOUSQUARTER ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 10
+
+			calculationItem 'PM' = ```
+					CALCULATE ( SELECTEDMEASURE (), PREVIOUSMONTH ( gold_dim_kalendarz[Date] ), REMOVEFILTERS ( Comparision[Porównanie] ) )
+					```
+				ordinal: 11
+
+		column Porównanie
+			dataType: string
+			summarizeBy: none
+			sourceColumn: Name
+			sortByColumn: Ordinal
+
+		column Ordinal
+			dataType: int64
+			formatString: 0
+			isHidden
+			summarizeBy: none
+			sourceColumn: Ordinal
+
+		partition Comparision = calculationGroup
+

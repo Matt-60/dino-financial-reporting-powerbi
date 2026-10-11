@@ -1,0 +1,198 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "8b1a2547a85f51843ca5",
+  "position": {
+    "x": 0,
+    "y": 230,
+    "z": 1000,
+    "width": 600,
+    "height": 220,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dim_kalendarz"
+                    }
+                  },
+                  "Property": "Rok kwartał"
+                }
+              },
+              "queryRef": "gold_dim_kalendarz.Rok kwartał",
+              "nativeQueryRef": "Kwartał",
+              "active": true,
+              "displayName": "Kwartał"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Szczegółowość wykresu"
+                    }
+                  },
+                  "Property": "Szczegółowość wykresu"
+                }
+              },
+              "index": 0,
+              "length": 1
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fct_ksiegowania"
+                    }
+                  },
+                  "Property": "Rotacja zapasów (dni)"
+                }
+              },
+              "queryRef": "gold_fct_ksiegowania.Rotacja zapasów (dni)",
+              "nativeQueryRef": "Rotacja zapasów (dni)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fct_ksiegowania"
+                    }
+                  },
+                  "Property": "Rotacja należności (dni)"
+                }
+              },
+              "queryRef": "gold_fct_ksiegowania.Rotacja należności (dni)",
+              "nativeQueryRef": "Rotacja należności (dni)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fct_ksiegowania"
+                    }
+                  },
+                  "Property": "Rotacja zobowiązań (dni)"
+                }
+              },
+              "queryRef": "gold_fct_ksiegowania.Rotacja zobowiązań (dni)",
+              "nativeQueryRef": "Rotacja zobowiązań (dni)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fct_ksiegowania"
+                    }
+                  },
+                  "Property": "Cykl konwersji gotówki (dni)"
+                }
+              },
+              "queryRef": "gold_fct_ksiegowania.Cykl konwersji gotówki (dni)",
+              "nativeQueryRef": "Cykl konwersji gotówki (dni)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_fct_ksiegowania"
+                  }
+                },
+                "Property": "Kapitał obrotowy handlowy"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cykl konwersji gotówki (dni)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Zapasy + należności − zobowiązania; ujemny = dostawcy finansują zapasy'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bottom'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

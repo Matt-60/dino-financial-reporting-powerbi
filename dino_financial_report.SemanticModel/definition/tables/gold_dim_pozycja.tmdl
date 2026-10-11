@@ -1,0 +1,143 @@
+table gold_dim_pozycja
+	lineageTag: df273d36-f1e0-4667-82f7-9aa7253d2888
+
+	column statement
+		dataType: string
+		lineageTag: c1c70996-3e72-4ab5-a4a7-48c4bf8da029
+		summarizeBy: none
+		sourceColumn: statement
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_id
+		dataType: string
+		lineageTag: bdd8439b-01d6-40b8-a123-dd217a709b48
+		summarizeBy: none
+		sourceColumn: line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_code
+		dataType: string
+		lineageTag: a65463b9-95e0-4554-af6e-af3cf47307c7
+		summarizeBy: none
+		sourceColumn: line_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_name
+		dataType: string
+		lineageTag: 26f5ec68-767b-4ac9-bb1d-5b81ee89726f
+		summarizeBy: none
+		sourceColumn: line_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_line_id
+		dataType: string
+		lineageTag: 38694670-a1ca-4951-bdb4-6c74994d409c
+		summarizeBy: none
+		sourceColumn: parent_line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column level
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cbcc103-a8c6-4983-ada7-99399720dda9
+		summarizeBy: none
+		sourceColumn: level
+
+		annotation SummarizationSetBy = Automatic
+
+	column sort_order
+		dataType: int64
+		formatString: 0
+		lineageTag: c492159a-947d-4836-bdb5-6d5a965080a6
+		summarizeBy: none
+		sourceColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_type
+		dataType: string
+		lineageTag: 2fe1a671-2a98-48e8-8bb6-451f33fad98f
+		summarizeBy: none
+		sourceColumn: line_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column formula
+		dataType: string
+		lineageTag: d10740f7-e343-453d-a0eb-decbbd2062d0
+		summarizeBy: none
+		sourceColumn: formula
+
+		annotation SummarizationSetBy = Automatic
+
+	column display_sign
+		dataType: int64
+		formatString: 0
+		lineageTag: 7566dd89-7f07-462b-bd0e-478f58c201b1
+		summarizeBy: none
+		sourceColumn: display_sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_bold
+		dataType: int64
+		formatString: 0
+		lineageTag: 183c3e1f-9a63-4509-a447-44217bb4da4e
+		summarizeBy: none
+		sourceColumn: is_bold
+
+		annotation SummarizationSetBy = Automatic
+
+	column adds_result
+		dataType: string
+		lineageTag: b6ec791a-394f-4b03-b0fb-126ba0fb48bc
+		summarizeBy: none
+		sourceColumn: adds_result
+
+		annotation SummarizationSetBy = Automatic
+
+	column znak
+		dataType: int64
+		formatString: 0
+		lineageTag: f123c3d5-01ef-435f-a147-90bb0cb77aa8
+		summarizeBy: none
+		sourceColumn: znak
+
+		annotation SummarizationSetBy = Automatic
+
+	column pozycja
+		dataType: string
+		lineageTag: 403117ad-6e48-4ac2-ac3a-c476deb769d1
+		summarizeBy: none
+		sourceColumn: pozycja
+		sortByColumn: sort_order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_pozycja = m
+		mode: import
+		queryGroup: 03_gold
+		source =
+				let
+				    Source = Csv.Document(File.Contents(FolderDanych & "fsv\data\fs_line.csv"),[Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"statement", type text}, {"line_id", type text}, {"line_code", type text}, {"line_name", type text}, {"parent_line_id", type text}, {"level", Int64.Type}, {"sort_order", Int64.Type}, {"line_type", type text}, {"formula", type text}, {"display_sign", Int64.Type}, {"is_bold", Int64.Type}, {"adds_result", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Custom", each if [line_type] = "FORMULA" then -1 else [display_sign]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Conditional Column",{{"Custom", "znak"}}),
+				    #"Dodana etykieta" = Table.AddColumn(#"Renamed Columns", "pozycja",
+				    each Text.Repeat(Character.FromNumber(160), 4 * [level]) & [line_code] & " " & [line_name], type text),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Dodana etykieta",{{"znak", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

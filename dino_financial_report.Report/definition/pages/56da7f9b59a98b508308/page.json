@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "56da7f9b59a98b508308",
+  "displayName": "TT Kapitał obrotowy",
+  "displayOption": "FitToPage",
+  "height": 450,
+  "width": 600,
+  "pageBinding": {
+    "name": "tt_56da7f9b",
+    "type": "Tooltip",
+    "parameters": [],
+    "acceptsFilterContext": "None"
+  },
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}

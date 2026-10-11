@@ -1,0 +1,46 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: pl-PL
+	valueFilterBehavior: independent
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 01_bronze
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 02_silver
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 03_gold
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["FolderDanych","bronze_bkpf","bronze_bseg","bronze_cepc","bronze_csks","bronze_faglflext","bronze_kna1","bronze_lfa1","bronze_lfb1","bronze_ska1","bronze_skat","bronze_skb1","bronze_t003t","silver_bkpf","silver_bseg","silver_ska1","silver_skat","fs_account","gold_dim_pozycja","gold_fct_ksiegowania","gold_dim_konto","gold_bridge_konto_pozycja","bridge_wynik","linie_wyniku","formula_skladniki","bridge_formuly","gold_bridge"]
+
+annotation PBI_ProTooling = ["CalcGroup","TMDLView_Desktop","DevMode"]
+
+ref table gold_dim_kalendarz
+ref table gold_fct_ksiegowania
+ref table gold_dim_konto
+ref table gold_bridge
+ref table gold_dim_pozycja
+ref table Comparison
+ref table 'Miara RZiS'
+ref table 'Szczegółowość wykresu'
+ref table LFL_raport
+ref table Bridge_LFL_pp
+ref table 'Miara bilans'
+ref table Bridge
+ref table Skladniki_bridge
+ref table Bridge_ROE
+
+ref cultureInfo en-US
+

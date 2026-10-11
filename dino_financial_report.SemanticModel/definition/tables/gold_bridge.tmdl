@@ -1,0 +1,56 @@
+table gold_bridge
+	lineageTag: ca6c6e97-e44f-4fd0-9f48-bc113425b8f2
+
+	column numer_konta
+		dataType: string
+		lineageTag: e9391252-9f8a-4ae0-9cd3-0ccb896f9bcb
+		summarizeBy: none
+		sourceColumn: numer_konta
+
+		annotation SummarizationSetBy = Automatic
+
+	column sprawozdanie
+		dataType: string
+		lineageTag: 3c8a87d8-c89a-48a6-9040-a729e19586e4
+		summarizeBy: none
+		sourceColumn: sprawozdanie
+
+		annotation SummarizationSetBy = Automatic
+
+	column strona_salda
+		dataType: string
+		lineageTag: f3a8f3fd-c3d0-45f9-9890-e476a715f044
+		summarizeBy: none
+		sourceColumn: strona_salda
+
+		annotation SummarizationSetBy = Automatic
+
+	column zakres
+		dataType: string
+		lineageTag: d9799bbb-c843-48b4-bbb9-4dc42a30eed3
+		summarizeBy: none
+		sourceColumn: zakres
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_pozycji
+		dataType: string
+		lineageTag: 9d4641da-5383-48f6-a9e0-b60f647cf7ae
+		summarizeBy: none
+		sourceColumn: id_pozycji
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_bridge = m
+		mode: import
+		queryGroup: 03_gold
+		source =
+				let
+				    Source = Table.Combine({gold_bridge_konto_pozycja, bridge_formuly})
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

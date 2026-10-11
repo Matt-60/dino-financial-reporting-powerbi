@@ -1,0 +1,70 @@
+mandt,spras,ktopl,saknr,txt20,txt50,_source_system,_ingested_at,_batch_id
+800,L,DINO,0000010000,Inne wartości niemat,Inne wartości niematerialne i prawne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000020100,Środki trwałe – grun,Środki trwałe – grunty (w tym prawo wieczystego uż,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000020200,Środki trwałe – budy,"Środki trwałe – budynki, lokale i obiekty inżynier",SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000020300,Środki trwałe – urzą,Środki trwałe – urządzenia techniczne i maszyny,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000020400,Środki trwałe – środ,Środki trwałe – środki transportu,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000020500,Środki trwałe – inne,Środki trwałe – inne środki trwałe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000030000,Długoterminowe aktyw,Długoterminowe aktywa finansowe – udziały/akcje w ,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000065000,Aktywa z tytułu odro,Aktywa z tytułu odroczonego podatku dochodowego (d,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000071000,Umorzenie wartości n,Umorzenie wartości niematerialnych i prawnych,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000072200,"Umorzenie – budynki,","Umorzenie – budynki, lokale i obiekty inżynierii",SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000072300,Umorzenie – urządzen,Umorzenie – urządzenia techniczne i maszyny,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000072400,Umorzenie – środki t,Umorzenie – środki transportu,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000072500,Umorzenie – inne śro,Umorzenie – inne środki trwałe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000080100,Środki trwałe w budo,Środki trwałe w budowie,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000080200,Zaliczki na środki t,Zaliczki na środki trwałe w budowie,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000100000,Środki pieniężne w k,Środki pieniężne w kasie i na rachunkach,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000135000,Inne środki pieniężn,Inne środki pieniężne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000140100,Udzielone pożyczki k,Udzielone pożyczki krótkoterminowe – jednostki pow,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000145000,Środki pieniężne w d,"Środki pieniężne w drodze (utarg sklepów, terminal",SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000200100,Należności od jednos,Należności od jednostek powiązanych z tyt. dostaw ,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000200200,Należności od jednos,Należności od jednostek powiązanych – inne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000201100,Należności od pozost,Należności od pozostałych jednostek z tyt. dostaw ,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000201200,Należności publiczno,"Należności publicznoprawne (podatki, dotacje, cła,",SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000201300,Należności od pozost,Należności od pozostałych jednostek – inne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000221100,VAT należny,VAT należny,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000221200,VAT naliczony,VAT naliczony,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000249100,Rezerwa na świadczen,Rezerwa na świadczenia emerytalne i podobne – dług,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000249200,Rezerwa na świadczen,Rezerwa na świadczenia emerytalne i podobne – krót,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000250100,Zobowiązania wobec j,Zobowiązania wobec jedn. powiązanych z tyt. dostaw,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000250200,Zobowiązania wobec j,Zobowiązania wobec jednostek powiązanych – inne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000251100,Zobowiązania wobec p,Zobowiązania wobec pozostałych jedn. z tyt. dostaw,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000251200,Zobowiązania publicz,"Zobowiązania publicznoprawne (podatki, cła, ubezp.",SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000251300,Zobowiązania z tytuł,Zobowiązania z tytułu wynagrodzeń,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000251400,Zobowiązania wobec p,Zobowiązania wobec pozostałych jednostek – inne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000260100,Kredyty i pożyczki d,Kredyty i pożyczki długoterminowe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000260200,Kredyty i pożyczki k,Kredyty i pożyczki krótkoterminowe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000261100,Zobowiązania z tytuł,Zobowiązania z tytułu emisji dłużnych papierów war,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000261200,Zobowiązania z tytuł,Zobowiązania z tytułu emisji dłużnych papierów war,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000300000,Zaliczki na dostawy ,Zaliczki na dostawy i usługi (zapasy),SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000305000,Rozliczenie zakupu t,Rozliczenie zakupu towarów (GR/IR),SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000310000,Materiały,Materiały,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000330000,Towary,Towary,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000400000,Amortyzacja,Amortyzacja,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000401000,Zużycie materiałów i,Zużycie materiałów i energii,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000402000,Usługi obce,Usługi obce,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000403000,Podatki i opłaty,Podatki i opłaty,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000404000,Wynagrodzenia,Wynagrodzenia,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000405000,Ubezpieczenia społec,Ubezpieczenia społeczne i inne świadczenia,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000409000,Pozostałe koszty rod,Pozostałe koszty rodzajowe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000640000,Krótkoterminowe rozl,Krótkoterminowe rozliczenia międzyokresowe czynne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000701000,Przychody netto ze s,Przychody netto ze sprzedaży produktów,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000730000,Przychody netto ze s,Przychody netto ze sprzedaży towarów,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000731000,Wartość sprzedanych ,Wartość sprzedanych towarów w cenie zakupu/nabycia,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000750200,Odsetki otrzymane,Odsetki otrzymane,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000750500,Inne przychody finan,Inne przychody finansowe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000751100,Odsetki zapłacone,Odsetki zapłacone,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000751400,Inne koszty finansow,Inne koszty finansowe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000760200,Dotacje,Dotacje,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000760400,Inne przychody opera,Inne przychody operacyjne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000761100,Strata z tytułu rozc,Strata z tytułu rozchodu niefinansowych aktywów tr,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000761200,Aktualizacja wartośc,Aktualizacja wartości aktywów niefinansowych (kosz,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000761300,Inne koszty operacyj,Inne koszty operacyjne,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000800000,Kapitał (fundusz) po,Kapitał (fundusz) podstawowy,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000801000,Kapitał (fundusz) za,Kapitał (fundusz) zapasowy,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000809000,Pozostałe składniki ,Pozostałe składniki kapitałów własnych,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000821000,Zysk/(strata) z lat ,Zysk/(strata) z lat ubiegłych,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000830000,Rezerwa z tytułu odr,Rezerwa z tytułu odroczonego podatku dochodowego,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000845200,Inne rozliczenia mię,Inne rozliczenia międzyokresowe – krótkoterminowe,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101
+800,L,DINO,0000870000,Podatek dochodowy bi,Podatek dochodowy bieżący i odroczony (obciążenie ,SAP_ECC_PRD,2024-01-02 02:00:00,MD_FULL_20240101

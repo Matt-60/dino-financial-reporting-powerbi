@@ -1,0 +1,75 @@
+table LFL_raport
+	lineageTag: 11747d88-2e18-4928-a7b7-671d26e5d7e0
+
+	column od
+		formatString: General Date
+		lineageTag: 830229fc-c58b-462a-970b-b11b7a97ad39
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [od]
+
+		annotation SummarizationSetBy = Automatic
+
+	column do
+		formatString: General Date
+		lineageTag: a75e4548-e3dc-4bd8-9a8b-8e5ae07b48eb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [do]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Okres
+		lineageTag: 81dbda6e-e582-46d4-9884-0970bfbc01f0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Okres]
+
+		annotation SummarizationSetBy = Automatic
+
+	column LFL
+		lineageTag: 42a1bcf6-4488-4b39-9199-3bf73ec668c6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [LFL]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Inflacja
+		lineageTag: cb2cc9ee-a282-4a42-8679-90254bb6c91c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Inflacja]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition LFL_raport = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "od", DATETIME, "do", DATETIME, "Okres", STRING, "LFL", DOUBLE, "Inflacja", DOUBLE,
+				    {
+				        { "2024-01-01", "2024-03-31", "1Q 2024", 0.119, 0.0263 },
+				        { "2024-04-01", "2024-06-30", "2Q 2024", 0.018, 0.0200 },
+				        { "2024-07-01", "2024-09-30", "3Q 2024", 0.023, 0.0400 },
+				        { "2024-10-01", "2024-12-31", "4Q 2024", 0.064, 0.0483 },
+				        { "2024-01-01", "2024-06-30", "1H 2024", 0.064, 0.0232 },
+				        { "2024-01-01", "2024-09-30", "9M 2024", 0.049, 0.0288 },
+				        { "2024-01-01", "2024-12-31", "FY 2024", 0.053, 0.0330 },
+				        { "2025-01-01", "2025-03-31", "1Q 2025", 0.005, 0.0613 },
+				        { "2025-04-01", "2025-06-30", "2Q 2025", 0.088, 0.0523 },
+				        { "2025-07-01", "2025-09-30", "3Q 2025", 0.044, 0.0467 },
+				        { "2025-10-01", "2025-12-31", "4Q 2025", 0.037, 0.0283 },
+				        { "2025-01-01", "2025-06-30", "1H 2025", 0.048, 0.0568 },
+				        { "2025-01-01", "2025-09-30", "9M 2025", 0.047, 0.0534 },
+				        { "2025-01-01", "2025-12-31", "FY 2025", 0.044, 0.0470 }
+				    }
+				)
+
+	annotation PBI_Id = e8adf314015d450198e2d27cb71acfed
+
